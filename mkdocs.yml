@@ -57,6 +57,7 @@ nav:
   - 机器学习:
       - 机器学习中的数学: machine/math.md
       - 机器学习算法: machine/machinelearning.md
+      - 机器学习教程: machine/tutorial.md
 
 
 
