@@ -1,0 +1,1830 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Buffalo">
+      
+      
+      
+        <link rel="prev" href="../math/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>深度学习教程 - 算法面试大集</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_2" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="算法面试大集" class="md-header__button md-logo" aria-label="算法面试大集" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            算法面试大集
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              深度学习教程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../math/probability/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  数学
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../machine/math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  机器学习
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../math/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  深度学习
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="算法面试大集" class="md-nav__button md-logo" aria-label="算法面试大集" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    算法面试大集
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    数学
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            数学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    概率统计
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/linear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    线性代数
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/calculus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    微积分与优化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    机器学习
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            机器学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine/math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    机器学习中的数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine/machinelearning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    机器学习算法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../machine/tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    机器学习教程
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    深度学习
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            深度学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    深度学习中的数学
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    深度学习教程
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    深度学习教程
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、深度学习简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、深度学习的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、深度学习的常用框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、深度学习的基本步骤
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、深度学习的常用算法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、深度学习的应用领域
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、CNN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、CNN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 CNN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 CNN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 CNN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 CNN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5 CNN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.6 CNN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7 CNN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、RNN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、RNN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 RNN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 RNN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 RNN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 RNN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 RNN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 RNN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.7 RNN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、GAN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、GAN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 GAN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 GAN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 GAN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 GAN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 GAN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 GAN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.7 GAN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、自编码器算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、自编码器算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 自编码器的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 自编码器的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 自编码器的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 自编码器的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 自编码器的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 自编码器的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 自编码器的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、深度学习简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、深度学习的基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、深度学习的常用框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、深度学习的基本步骤
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      五、深度学习的常用算法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      六、深度学习的应用领域
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      七、CNN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="七、CNN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 CNN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 CNN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 CNN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.4 CNN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.5 CNN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.6 CNN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77-cnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.7 CNN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      八、RNN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="八、RNN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 RNN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 RNN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 RNN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 RNN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 RNN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 RNN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-rnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.7 RNN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      九、GAN算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="九、GAN算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 GAN的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 GAN的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 GAN的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 GAN的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 GAN的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 GAN的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.7 GAN的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      十、自编码器算法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="十、自编码器算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 自编码器的基本结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 自编码器的工作原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 自编码器的优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 自编码器的应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 自编码器的代码实现
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#106" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 自编码器的调优技巧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#107" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 自编码器的扩展
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">深度学习教程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">一、深度学习简介<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>深度学习（Deep Learning）是机器学习的一个分支，主要通过构建多层神经网络来模拟人脑的学习过程。它在图像识别、自然语言处理、语音识别等领域取得了显著的成果。</p>
+<h2 id="_3">二、深度学习的基本概念<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>神经网络</strong>：由输入层、隐藏层和输出层组成的网络结构。每个节点（神经元）通过权重连接，模拟生物神经元的工作方式。</li>
+<li><strong>激活函数</strong>：用于引入非线性特性，常见的激活函数有ReLU、Sigmoid和Tanh。</li>
+<li><strong>前向传播</strong>：数据通过网络层层传递，计算输出结果的过程。</li>
+<li><strong>反向传播</strong>：通过计算损失函数的梯度，调整网络权重的过程。</li>
+<li><strong>损失函数</strong>：衡量模型预测结果与真实结果之间差异的函数，常见的有均方误差（MSE）和交叉熵损失。    </li>
+</ol>
+<h2 id="_4">三、深度学习的常用框架<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>TensorFlow</strong>：由Google开发的开源深度学习框架，支持多种语言接口。</li>
+<li><strong>PyTorch</strong>：由Facebook开发的深度学习框架，具有动态计算图的特点，易于调试和开发。</li>
+<li><strong>Keras</strong>：基于TensorFlow的高级API，简化了神经网络的构建过程。   </li>
+</ol>
+<h2 id="_5">四、深度学习的基本步骤<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>数据准备</strong>：收集、清洗和预处理数据，包括归一化、数据增强等。</li>
+<li><strong>模型构建</strong>：选择合适的神经网络结构和激活函数。</li>
+<li><strong>模型训练</strong>：使用训练数据进行前向传播和反向传播，调整权重。</li>
+<li><strong>模型评估</strong>：使用验证数据评估模型性能，调整超参数。</li>
+<li><strong>模型部署</strong>：将训练好的模型应用于实际任务中。   </li>
+</ol>
+<h2 id="_6">五、深度学习的常用算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>卷积神经网络（CNN）</strong>：主要用于图像处理，通过卷积层提取空间特征。</li>
+<li><strong>循环神经网络（RNN）</strong>：适用于序列数据，如文本和时间序列，能够捕捉时间依赖。</li>
+<li><strong>生成对抗网络（GAN）</strong>：由生成器和判别器组成，用于生成逼真的数据样本。</li>
+<li><strong>自编码器（Autoencoder）</strong>：用于无监督学习，通过压缩和重建数据实现特征提取。 </li>
+</ol>
+<h2 id="_7">六、深度学习的应用领域<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>计算机视觉</strong>：图像分类、目标检测、图像生成等。</li>
+<li><strong>自然语言处理</strong>：机器翻译、文本生成、情感分析等。</li>
+<li><strong>语音识别</strong>：语音转文本、语音合成等。</li>
+<li><strong>推荐系统</strong>：个性化推荐、广告投放等。</li>
+<li><strong>医疗诊断</strong>：医学影像分析、疾病预测等。</li>
+</ol>
+<h2 id="cnn">七、CNN算法<a class="headerlink" href="#cnn" title="Permanent link">&para;</a></h2>
+<p>卷积神经网络（Convolutional Neural Network, CNN）是一种专门用于处理具有网格结构数据的深度学习模型，广泛应用于图像识别和处理领域。CNN通过卷积层、池化层和全连接层等组件，能够有效提取图像的空间特征。    </p>
+<h3 id="71-cnn">7.1 CNN的基本结构<a class="headerlink" href="#71-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>卷积层（Convolutional Layer）</strong>：通过卷积操作提取局部特征，使用多个滤波器（卷积核）扫描输入数据。  </li>
+<li><strong>激活函数（Activation Function）</strong>：引入非线性特性，常用的激活函数有ReLU、Sigmoid和Tanh。  </li>
+<li><strong>池化层（Pooling Layer）</strong>：通过下采样操作减少数据维度，常用的池化方法有最大池化（Max Pooling）和平均池化（Average Pooling）。  </li>
+<li><strong>全连接层（Fully Connected Layer）</strong>：将高维特征映射到输出类别，类似于传统神经网络的结构。  </li>
+<li><strong>输出层（Output Layer）</strong>：使用Softmax等函数将输出映射为概率分布。</li>
+</ol>
+<h3 id="72-cnn">7.2 CNN的工作原理<a class="headerlink" href="#72-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>前向传播</strong>：输入图像通过卷积层提取特征，经过激活函数和池化层处理，最终通过全连接层输出分类结果。</li>
+<li><strong>反向传播</strong>：计算损失函数的梯度，通过梯度下降算法调整网络权重，优化模型性能。</li>
+</ol>
+<h3 id="73-cnn">7.3 CNN的优势<a class="headerlink" href="#73-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>局部连接</strong>：卷积层只连接局部区域，减少参数数量，提高计算效率。</li>
+<li><strong>权重共享</strong>：同一卷积核在不同位置共享权重，进一步减少参数数量。</li>
+<li><strong>平移不变性</strong>：通过池化操作，增强模型对图像平移的鲁棒性。</li>
+</ol>
+<h3 id="74-cnn">7.4 CNN的应用<a class="headerlink" href="#74-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>图像分类</strong>：如ImageNet竞赛中的图像识别任务。</li>
+<li><strong>目标检测</strong>：如YOLO、Faster R-CNN等算法。</li>
+<li><strong>图像分割</strong>：如U-Net等用于医学图像分割的模型。</li>
+<li><strong>人脸识别</strong>：如FaceNet等模型。</li>
+<li><strong>自动驾驶</strong>：用于道路场景理解和物体检测。   </li>
+</ol>
+<h3 id="75-cnn">7.5 CNN的代码实现<a class="headerlink" href="#75-cnn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleCNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleCNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">32</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># 示例：创建模型并打印结构</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleCNN</span><span class="p">(</span><span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="76-cnn">7.6 CNN的调优技巧<a class="headerlink" href="#76-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>数据增强</strong>：通过旋转、翻转、裁剪等方法增加训练数据的多样性。</li>
+<li><strong>正则化</strong>：使用Dropout、L2正则化等方法防止过拟合。</li>
+<li><strong>学习率调整</strong>：使用学习率衰减或自适应学习率优化器（如Adam）提高训练效果。</li>
+<li><strong>批量归一化</strong>：在每个批次中对数据进行归一化，稳定训练过程。</li>
+</ol>
+<h3 id="77-cnn">7.7 CNN的扩展<a class="headerlink" href="#77-cnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>深层网络</strong>：如VGG、ResNet等，通过增加网络深度提升性能。</li>
+<li><strong>迁移学习</strong>：利用预训练模型进行微调，加速训练过程。</li>
+<li><strong>多任务学习</strong>：同时处理多个相关任务，提高模型泛化能力。 </li>
+</ol>
+<h2 id="rnn">八、RNN算法<a class="headerlink" href="#rnn" title="Permanent link">&para;</a></h2>
+<p>循环神经网络（Recurrent Neural Network, RNN）是一种适用于处理序列数据的深度学习模型，广泛应用于自然语言处理、时间序列预测等领域。RNN通过循环连接，使得网络能够捕捉序列中的时间依赖关系。    </p>
+<h3 id="81-rnn">8.1 RNN的基本结构<a class="headerlink" href="#81-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>输入层（Input Layer）</strong>：接收序列数据的输入，如文本、时间序列等。  </li>
+<li><strong>隐藏层（Hidden Layer）</strong>：通过循环连接处理序列数据，捕捉时间依赖关系。  </li>
+<li><strong>输出层（Output Layer）</strong>：将隐藏层的输出映射为最终结果，如分类标签或预测值。</li>
+</ol>
+<h3 id="82-rnn">8.2 RNN的工作原理<a class="headerlink" href="#82-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>前向传播</strong>：输入序列数据逐步传递，通过隐藏层的循环连接，更新隐藏状态并生成输出。</li>
+<li><strong>反向传播</strong>：通过时间反向传播（BPTT）计算损失函数的梯度，调整网络权重，优化模型性能。</li>
+</ol>
+<h3 id="83-rnn">8.3 RNN的优势<a class="headerlink" href="#83-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>时间依赖性</strong>：能够捕捉序列数据中的时间依赖关系。</li>
+<li><strong>参数共享</strong>：同一时间步的权重在不同时间步共享，减少参数数量。</li>
+</ol>
+<h3 id="84-rnn">8.4 RNN的应用<a class="headerlink" href="#84-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>自然语言处理</strong>：如语言模型、机器翻译、文本生成等。</li>
+<li><strong>时间序列预测</strong>：如股票价格预测、天气预报等。</li>
+<li><strong>语音识别</strong>：将语音信号转换为文本。</li>
+<li><strong>视频分析</strong>：处理视频帧序列，实现动作识别等任务。</li>
+</ol>
+<h3 id="85-rnn">8.5 RNN的代码实现<a class="headerlink" href="#85-rnn" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleRNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleRNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rnn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">RNN</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rnn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">out</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>  <span class="c1"># 取最后一个时间步的输出</span>
+        <span class="k">return</span> <span class="n">out</span>
+<span class="c1"># 示例：创建模型并打印结构</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleRNN</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="86-rnn">8.6 RNN的调优技巧<a class="headerlink" href="#86-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>梯度裁剪</strong>：防止梯度爆炸，通过限制梯度的最大值来稳定训练过程。</li>
+<li><strong>正则化</strong>：使用Dropout等方法防止过拟合。</li>
+<li><strong>学习率调整</strong>：使用学习率衰减或自适应学习率优化器（如Adam）提高训练效果。</li>
+<li><strong>双向RNN</strong>：通过同时考虑前后文信息，提升模型性能。</li>
+</ol>
+<h3 id="87-rnn">8.7 RNN的扩展<a class="headerlink" href="#87-rnn" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>长短期记忆网络（LSTM）</strong>：通过引入门控机制，解决传统RNN的梯度消失问题。</li>
+<li><strong>门控循环单元（GRU）</strong>：简化的LSTM结构，减少计算复杂度。        </li>
+</ol>
+<h2 id="gan">九、GAN算法<a class="headerlink" href="#gan" title="Permanent link">&para;</a></h2>
+<p>生成对抗网络（Generative Adversarial Network, GAN）是一种通过对抗训练生成逼真数据样本的深度学习模型，广泛应用于图像生成、数据增强等领域。GAN由生成器和判别器两个部分组成，通过相互竞争提升生成效果。</p>
+<h3 id="91-gan">9.1 GAN的基本结构<a class="headerlink" href="#91-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>生成器（Generator）</strong>：接收随机噪声作为输入，生成逼真的数据样本。  </li>
+<li><strong>判别器（Discriminator）</strong>：接收真实数据和生成数据作为输入，判断数据的真实性。  </li>
+</ol>
+<h3 id="92-gan">9.2 GAN的工作原理<a class="headerlink" href="#92-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>生成器训练</strong>：通过生成数据欺骗判别器，提升生成数据的质量。  </li>
+<li><strong>判别器训练</strong>：通过区分真实数据和生成数据，提升判别能力。  </li>
+<li><strong>对抗训练</strong>：生成器和判别器交替训练，最终达到一个纳什均衡状态。  </li>
+</ol>
+<h3 id="93-gan">9.3 GAN的优势<a class="headerlink" href="#93-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>数据生成</strong>：能够生成高质量、逼真的数据样本。  </li>
+<li><strong>无监督学习</strong>：不需要标注数据，适用于数据稀缺的场景。  </li>
+</ol>
+<h3 id="94-gan">9.4 GAN的应用<a class="headerlink" href="#94-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>图像生成</strong>：如DCGAN、StyleGAN等生成高质量图像。  </li>
+<li><strong>图像修复</strong>：填补图像中的缺失部分。  </li>
+<li><strong>数据增强</strong>：生成多样化的数据样本，提升模型泛化能力。  </li>
+<li><strong>文本生成</strong>：生成自然语言文本，如对话系统等。  </li>
+</ol>
+<h3 id="95-gan">9.5 GAN的代码实现<a class="headerlink" href="#95-gan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Generator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Generator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Discriminator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Discriminator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="p">)</span>           
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># 示例：创建生成器和判别器并打印结构</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">output_size</span><span class="o">=</span><span class="mi">784</span><span class="p">)</span>
+<span class="n">disc</span> <span class="o">=</span> <span class="n">Discriminator</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">disc</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="96-gan">9.6 GAN的调优技巧<a class="headerlink" href="#96-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>网络结构设计</strong>：选择合适的生成器和判别器结构，提升生成效果。  </li>
+<li><strong>损失函数选择</strong>：使用改进的损失函数（如Wasserstein损失）稳定训练过程。  </li>
+<li><strong>训练技巧</strong>：如标签平滑、噪声注入等方法防止模式崩溃。  </li>
+</ol>
+<h3 id="97-gan">9.7 GAN的扩展<a class="headerlink" href="#97-gan" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>条件GAN（cGAN）</strong>：通过引入条件信息，生成特定类别的数据样本。  </li>
+<li><strong>CycleGAN</strong>：实现不同域之间的图像转换。  </li>
+<li><strong>StyleGAN</strong>：通过风格控制生成高质量图像。</li>
+</ol>
+<h2 id="_8">十、自编码器算法<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>自编码器（Autoencoder）是一种用于无监督学习的神经网络模型，主要用于数据压缩和特征提取。通过将输入数据编码为低维表示，再解码还原为原始数据，自编码器能够学习数据的潜在结构和特征。</p>
+<h3 id="101">10.1 自编码器的基本结构<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>编码器（Encoder）</strong>：将输入数据映射到低维潜在空间的网络结构。  </li>
+<li><strong>解码器（Decoder）</strong>：将低维表示还原为原始数据的网络结构。  </li>
+<li><strong>瓶颈层（Bottleneck Layer）</strong>：编码器和解码器之间的低维表示层，起到数据压缩的作用。 </li>
+</ol>
+<h3 id="102">10.2 自编码器的工作原理<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>前向传播</strong>：输入数据通过编码器生成低维表示，再通过解码器还原为原始数据。  </li>
+<li><strong>损失函数</strong>：通过计算输入数据与还原数据之间的差异（如均方误差），优化网络权重。 </li>
+</ol>
+<h3 id="103">10.3 自编码器的优势<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>无监督学习</strong>：不需要标注数据，适用于数据稀缺的场景。  </li>
+<li><strong>特征提取</strong>：能够学习数据的潜在结构和特征。  </li>
+<li><strong>数据压缩</strong>：通过低维表示实现数据压缩，减少存储空间。</li>
+</ol>
+<h3 id="104">10.4 自编码器的应用<a class="headerlink" href="#104" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>降维</strong>：如PCA的非线性扩展，用于数据可视化和预处理。  </li>
+<li><strong>异常检测</strong>：通过重建误差识别异常数据。  </li>
+<li><strong>图像去噪</strong>：去除图像中的噪声。  </li>
+<li><strong>生成模型</strong>：如变分自编码器（VAE）用于生成新数据样本。  </li>
+</ol>
+<h3 id="105">10.5 自编码器的代码实现<a class="headerlink" href="#105" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Autoencoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Autoencoder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="p">)</span>  
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+<span class="c1"># 示例：创建自编码器并打印结构</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Autoencoder</span><span class="p">(</span><span class="n">input_size</span><span class="o">=</span><span class="mi">784</span><span class="p">,</span> <span class="n">hidden_size</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="106">10.6 自编码器的调优技巧<a class="headerlink" href="#106" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>网络结构设计</strong>：选择合适的编码器和解码器结构，提升重建效果。  </li>
+<li><strong>正则化</strong>：使用Dropout、L2正则化等方法防止过拟合。  </li>
+<li><strong>损失函数选择</strong>：根据任务需求选择合适的损失函数（如均方误差、交叉熵等）。  </li>
+</ol>
+<h3 id="107">10.7 自编码器的扩展<a class="headerlink" href="#107" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>变分自编码器（VAE）</strong>：引入概率模型，实现数据生成。  </li>
+<li><strong>稀疏自编码器</strong>：通过稀疏性约束提升特征提取能力。  </li>
+<li><strong>去噪自编码器</strong>：通过添加噪声训练模型，提高鲁棒性。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.section", "navigation.expand", "navigation.tabs", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.code.annotate", "math"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+        <script src="../../styles/javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
