@@ -214,6 +214,115 @@ LIME通过在局部区域拟合简单模型，解释复杂模型的预测结果�
 ##### SHAP值（SHapley Additive exPlanations）
 SHAP值基于博弈论，量化每个特征对预测结果的贡献。提供全局和局部的解释，适用于各种模型类型。  
 
+### 2.5 模型部署
+
+#### 什么是模型部署？
+
++ **训练阶段**：你在本地用数据训练出模型（比如 sklearn、PyTorch、TensorFlow）。
++ **部署阶段**：让别人能使用模型，通常通过：
+	1.	本地调用（Python 脚本或 Notebook）
+	2.	打包 API 服务（Flask/FastAPI/Triton）
+	3.	容器化 & 云部署（Docker + Kubernetes + 云服务）
+	4.	前端/移动端集成（ONNX/TensorRT/TF Lite）
+
+#### 1、本地部署
+
+适合学习和小规模测试。
+
+**方式**：直接保存模型，再加载调用。
+
+```python
+import joblib
+from sklearn.linear_model import LogisticRegression
+
+# 训练模型
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# 保存模型
+joblib.dump(model, "model.pkl")
+
+# 加载模型
+loaded_model = joblib.load("model.pkl")
+print(loaded_model.predict(X_test))
+```
+
+#### 2、API 服务化部署
+
+API 服务化部署.
+
+#####  FastAPI 部署
+```python
+from fastapi import FastAPI
+import joblib
+
+app = FastAPI()
+model = joblib.load("model.pkl")
+
+@app.post("/predict")
+def predict(features: list[float]):
+    pred = model.predict([features])
+    return {"prediction": int(pred[0])}
+```
+**启动**
+
+```bash
+uvicorn app:app --reload
+```
+
+#### 3、容器化部署
+
+当你需要在不同机器上运行，或部署到云端时，使用 Docker。
+
+**Dockerfile 示例**
+```Dockerfile
+FROM python:3.10-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+构建镜像并运行：
+
+```bash
+docker build -t ml-api .
+docker run -p 8000:8000 ml-api
+```
+
+#### 4、云端部署
+
+##### 常见选择
+
++ AWS Sagemaker：官方托管服务，支持自动伸缩。
++ Google Vertex AI：适合 TensorFlow、PyTorch。
++ Azure ML：企业友好。
++ Hugging Face Spaces：免费快速搭建。
++ Render/Heroku：快速 Web 服务部署。
+
+##### Hugging Face Spaces 示例（Gradio）
+
+```python
+import gradio as gr
+import joblib
+
+model = joblib.load("model.pkl")
+
+def predict(features):
+    return int(model.predict([features])[0])
+
+iface = gr.Interface(fn=predict, inputs="text", outputs="label")
+iface.launch()
+```
+
+#### 5、高性能推理
+
+当模型较大时，需要优化：
+
++ ONNX Runtime（跨平台推理）
++ TensorRT（NVIDIA GPU 加速）
++ Triton Inference Server（大规模部署）
++ vLLM（大模型推理优化）
 
 ## 三、KNN算法
 
