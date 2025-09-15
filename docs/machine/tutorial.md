@@ -281,31 +281,40 @@ KNN算法适用于以下场景：
 
 ```python
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, confusion_matrix 
 from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report,confusion_matrix,ConfusionMatrixDisplay
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+
 # 加载数据集
 data = load_iris()
 X = data.data
 y = data.target
-# 划分训练集和测试集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-# 数据标准化
+print("特征名称：",data.feature_names)
+print("目标值：",data.target_names)
+# 拆分训练数据和测试数据
+x_train,x_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+print("训练集形状：",x_train.shape)
+print("测试集形状：",x_test.shape)
+# 标准化
 scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-# 创建KNN模型
-k = 3
-knn = KNeighborsClassifier(n_neighbors=k)
+x_train = scaler.fit_transform(x_train)
+x_test = scaler.transform(x_test)
 # 训练模型
-knn.fit(X_train, y_train)
-# 预测
-y_pred = knn.predict(X_test)
-# 评估模型
-print(confusion_matrix(y_test, y_pred))
-print(classification_report(y_test, y_pred))
+knn = KNeighborsClassifier(n_neighbors=3,n_jobs=-1)
+knn.fit(x_train,y_train)
+# 模型评估
+y_pred = knn.predict(x_test)
+print("混淆矩阵".center(80,"="))
+cm = confusion_matrix(y_true=y_test,y_pred=y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot()
+plt.show()
+
+print("分类报告".center(80,"="))
+print(classification_report(y_true=y_test,y_pred=y_pred))
 ```
 
 
