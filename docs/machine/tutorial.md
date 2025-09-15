@@ -625,6 +625,97 @@ print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 ``` 
 
+#### 参数详解
+1. penalty
+    - 作用：指定正则化类型。
+    - 可选值：`'l1'`（L1正则化）、`'l2'`（L2正则化，默认值）、`'elasticnet'`（弹性网正则化）、`'none'`（无正则化）。
+    - 说明：
+        - L1正则化倾向于产生稀疏权重，适用于特征选择。
+        - L2正则化能防止过拟合，适用于特征间存在相关性的情况。
+        - 弹性网正则化结合了L1和L2正则化。
+2. C
+    - 作用：正则化强度的倒数，值越小，正则化强度越大。
+    - 默认值：`1.0`。
+    - 取值范围：正浮点数。
+3. dual
+    - 作用：选择求解原始问题还是对偶问题。
+    - 可选值：`True`或`False`（默认值）。
+    - 说明：仅当`penalty='l2'`且`solver='liblinear'`时有效。若样本数大于特征数，建议设为`False`。
+4. solver
+    - 作用：选择优化算法。
+    - 可选值：
+        - `'newton-cg'`：牛顿法。
+        - `'lbfgs'`：拟牛顿法（默认值）。
+        - `'liblinear'`：坐标下降法。
+        - `'sag'`：随机平均梯度下降法。
+        - `'saga'`：SAGA算法。
+    - 说明：
+        - `'liblinear'`适用于小数据集，支持L1正则化。
+        - `'sag'`和`'saga'`适用于大数据集。
+        - `'newton-cg'`、`'lbfgs'`仅支持L2正则化。
+5. max_iter
+    - 作用：最大迭代次数。
+    - 默认值：`100`。
+    - 说明：若模型未收敛，可适当增大该值。
+6. multi_class
+    - 作用：多分类策略。
+    - 可选值：
+        - `'ovr'`：一对其余（One-vs-Rest）。
+        - `'multinomial'`：多项式回归。
+        - `'auto'`：自动选择。
+    - 说明：`'multinomial'`适用于多分类问题，需`solver`支持。
+7. class_weight
+    - 作用：类别权重。
+    - 可选值：
+        - `None`：所有类别的权重相同。
+        - `'balanced'`：自动调整权重以平衡类别频率。
+        - 字典：手动指定类别权重。
+    - 说明：用于处理类别不平衡问题。
+8. fit_intercept
+    - 作用：是否计算截距。
+    - 可选值：`True`（默认值）或`False`。
+    - 说明：若设为`False`，则模型不包含截距项。
+9. random_state
+    - 作用：随机数生成器的种子。
+    - 默认值：`None`。
+    - 说明：用于保证结果的可重复性。
+10. tol
+    - 作用：收敛阈值。
+    - 默认值：`1e-4`。
+    - 说明：当损失函数的变化小于该值时，停止迭代。
+11. warm_start
+    - 作用：是否使用前一次训练的结果作为初始化。
+    - 可选值：`True`或`False`（默认值）。
+    - 说明：若设为`True`，可继续训练模型。
+12. n_jobs
+    - 作用：并行计算的CPU数量。
+    - 默认值：`None`。
+    - 说明：若设为`-1`，则使用所有可用的CPU。
+使用示例
+```python
+from sklearn.linear_model import LogisticRegression
+创建模型实例
+model = LogisticRegression(
+    penalty='l2',          使用L2正则化
+    C=1.0,                 正则化强度
+    solver='lbfgs',        使用L-BFGS优化算法
+    max_iter=100,          最大迭代次数
+    multi_class='auto',    自动选择多分类策略
+    class_weight='balanced' 平衡类别权重
+)
+训练模型
+model.fit(X_train, y_train)
+预测
+y_pred = model.predict(X_test)
+```
+参数选择建议
+- 小数据集：使用`solver='liblinear'`或`'lbfgs'`。
+- 大数据集：使用`solver='sag'`或`'saga'`。
+- 特征选择：使用`penalty='l1'`。
+- 类别不平衡：设置`class_weight='balanced'`或手动指定权重。
+通过合理设置这些参数，可以优化模型的性能和泛化能力。
+
+
 ### 4.5 逻辑回归算法调优
 逻辑回归算法的性能受正则化参数和特征选择的影响。可以通过交叉验证和网格搜索等方法调优正则化参数（如L1、L2正则化），选择最佳的特征子集以提高模型性能。    
 
@@ -663,7 +754,7 @@ print(classification_report(y_test, y_pred))
 
 朴素贝叶斯算法是一种基于贝叶斯定理和特征条件独立假设的分类算法。
 
-#####  贝叶斯定理
+####  贝叶斯定理
 贝叶斯定理描述了在已知相关证据下，事件发生的概率，公式为：
 
 $$P(Y|X) = \frac{P(X|Y) \cdot P(Y)}{P(X)}$$
@@ -674,6 +765,55 @@ $$P(Y|X) = \frac{P(X|Y) \cdot P(Y)}{P(X)}$$
 - $P(X|Y)$：似然概率，给定类别$Y$时特征$X$出现的概率。
 - $P(X)$：证据概率，特征$X$出现的总概率。
 - $P(Y|X)$：后验概率，给定特征$X$时类别$Y$的概率。
+
+
+######  1. 疾病诊断
+背景：某罕见疾病的患病率为1%（先验概率$P(患病)=0.01$）。检测方法的准确率为：
+
+- 患病者检测阳性的概率（似然$P(阳性|患病)=0.99$）。
+- 未患病者检测阳性的概率（$P(阳性|未患病)=0.05$）。
+
+问题：若某人检测阳性，实际患病的概率是多少（后验概率$P(患病|阳性)$）？
+
+计算：
+
+- 全概率公式计算$P(阳性)$：
+
+$$
+P(阳性) = P(阳性|患病) \cdot P(患病) + P(阳性|未患病) \cdot P(未患病) = 0.99 \times 0.01 + 0.05 \times 0.99 = 0.0594
+$$
+
+- 应用贝叶斯定理：
+
+$$
+P(患病|阳性) = \frac{P(阳性|患病) \cdot P(患病)}{P(阳性)} = \frac{0.99 \times 0.01}{0.0594} \approx 16.7\%
+$$
+
+结论：检测阳性后，实际患病概率约为16.7%，说明罕见病的阳性检测可能存在较高误诊率。
+
+###### 2. 垃圾邮件过滤
+
+背景：已知垃圾邮件占邮件总数的30%（$P(垃圾邮件)=0.3$）。特征词“免费”在垃圾邮件中出现的概率为50%（$P(免费|垃圾邮件)=0.5$），在正常邮件中出现的概率为5%（$P(免费|正常邮件)=0.05$）。
+问题：若某邮件包含“免费”，它是垃圾邮件的概率是多少？
+
+计算：
+
+- 计算$P(免费)$：
+
+$$
+P(免费) = P(免费|垃圾邮件) \cdot P(垃圾邮件) + P(免费|正常邮件) \cdot P(正常邮件) = 0.5 \times 0.3 + 0.05 \times 0.7 = 0.185
+$$
+
+- 应用贝叶斯定理：
+
+$$
+P(垃圾邮件|免费) = \frac{P(免费|垃圾邮件) \cdot P(垃圾邮件)}{P(免费)} = \frac{0.5 \times 0.3}{0.185} \approx 81.1\%
+$$
+
+结论：包含“免费”的邮件有81.1%的概率是垃圾邮件，有助于分类决策。
+
+通过以上例子，可以看出贝叶斯定理如何通过先验概率和新证据，更新对事件概率的判断，从而在实际问题中做出更准确的决策。
+
 
 #####  特征条件独立假设
 
@@ -763,6 +903,52 @@ y_pred = nb.predict(X_test_selected)
 print(confusion_matrix(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 ```
+
+`SelectKBest`和`chi2`是scikit-learn库中用于特征选择的重要工具，主要用于从数据集中选择与目标变量最相关的K个特征。
+
+#####  SelectKBest
+- 功能：`SelectKBest`是一个基于统计度量的单变量特征选择类，它选择与目标变量最相关的K个特征。
+- 参数：
+    - `score_func`：用于评估特征相关性的函数，如卡方检验（`chi2`）、F检验（`f_classif`）、互信息（`mutual_info_classif`）等。
+    - `k`：要选择的特征数量。
+- 用法：
+    ```python
+    from sklearn.feature_selection import SelectKBest
+    使用卡方检验作为评估函数，选择前K个最佳特征
+    selector = SelectKBest(score_func=chi2, k=10)
+    X_new = selector.fit_transform(X, y)
+    ```
+#####  chi2
+- 功能：`chi2`函数用于计算特征与目标变量之间的卡方统计量和p值，适用于分类问题，要求特征值为非负数。
+- 输出：返回每个特征的卡方统计量和p值，卡方统计量越大，表示特征与目标变量的相关性越强。
+- 用法：
+    ```python
+    from sklearn.feature_selection import chi2
+    scores, pvalues = chi2(X, y)
+    ```
+#####  示例
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.feature_selection import SelectKBest, chi2
+加载数据
+iris = load_iris()
+X, y = iris.data, iris.target
+使用SelectKBest和chi2选择前2个最佳特征
+selector = SelectKBest(score_func=chi2, k=2)
+X_new = selector.fit_transform(X, y)
+输出所选特征的索引
+selected_features = selector.get_support(indices=True)
+print("Selected features indices:", selected_features)
+```
+###### 注意事项
+
+- 数据预处理：在使用`chi2`之前，确保特征值为非负数，可能需要进行标准化或离散化处理。
+- 特征相关性：`SelectKBest`基于单变量统计度量，可能忽略特征之间的交互作用。
+- K值选择：通过交叉验证或可视化得分曲线确定最佳的K值。
+
+通过合理使用`SelectKBest`和`chi2`，可以有效降低数据维度，提高模型训练效率和预测性能。
+
 ### 5.6 朴素贝叶斯算法扩展
 朴素贝叶斯算法可以与其他技术结合使用，如多项式朴素贝叶斯（处理文本数据）、贝叶斯网络（捕捉特征之间的关系）等，以提高算法的性能和适用性。      
 
