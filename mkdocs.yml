@@ -68,6 +68,9 @@ nav:
   - 深度学习:
       - 深度学习中的数学: deeplearning/math.md
       - 深度学习教程: deeplearning/tutorial.md
+  - 强化学习:
+      - 强化学习中的数学: reinforcement/math.md
+      - 强化学习教程: reinforcement/tutorial.md
 
 
 
