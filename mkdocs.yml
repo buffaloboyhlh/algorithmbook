@@ -24,6 +24,7 @@ theme:
     - navigation.section
     - navigation.expand
     - navigation.tabs
+    - navigation.sections
     - navigation.indexes
     - content.code.copy
     - content.tabs.link
@@ -31,13 +32,18 @@ theme:
     - math
   language: zh
 
+plugins:
+  - search
+
 extra_css:
   - styles/extra.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css
 
 extra_javascript:
   - styles/javascripts/config.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js
+  - styles/javascripts/katex.js
 
 markdown_extensions:
   - admonition
@@ -56,8 +62,8 @@ nav:
       - 微积分与优化: math/calculus.md
   - 机器学习:
       - 机器学习中的数学: machine/math.md
-      - 机器学习算法: machine/machinelearning.md
       - 机器学习教程: machine/tutorial.md
+      - 机器学习教程补充: machine/machinelearning.md
   - 深度学习:
       - 深度学习中的数学: deeplearning/math.md
       - 深度学习教程: deeplearning/tutorial.md
