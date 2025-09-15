@@ -1,5 +1,6 @@
 site_name: 算法面试大集
 site_author: Buffalo
+site_url:  https://github.com/buffaloboyhlh/algorithmbook
 theme:
   name: material
   primary: teal
