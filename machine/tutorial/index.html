@@ -3221,7 +3221,7 @@ knn = KNeighborsClassifier(
 </ul>
 </li>
 <li>损失函数与优化<ul>
-<li>交叉熵损失：逻辑回归使用交叉熵损失函数衡量预测概率与真实标签的差异：<span class="arithmatex">\(J(\theta) = -\frac{1}{m}\sum_{i=1}^{m}\)</span>。</li>
+<li>交叉熵损失：逻辑回归使用交叉熵损失函数衡量预测概率与真实标签的差异： $  L(y, \hat{y}) = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]  $ </li>
 <li>优化算法：通过梯度下降、牛顿法等优化算法，最小化损失函数，求解最优的权重<span class="arithmatex">\(w\)</span>和偏置<span class="arithmatex">\(b\)</span>。</li>
 </ul>
 </li>
