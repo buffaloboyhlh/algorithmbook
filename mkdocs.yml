@@ -64,7 +64,7 @@ nav:
   - 机器学习:
       - 机器学习中的数学: machine/math.md
       - 机器学习教程: machine/tutorial.md
-      - 机器学习教程补充: machine/machinelearning.md
+      - 机器学习面试: machine/interview.md
   - 深度学习:
       - 深度学习中的数学: deeplearning/math.md
       - 深度学习教程: deeplearning/tutorial.md
