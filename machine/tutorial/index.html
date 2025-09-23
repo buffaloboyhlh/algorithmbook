@@ -16,11 +16,11 @@
         <link rel="prev" href="../math/">
       
       
-        <link rel="next" href="../machinelearning/">
+        <link rel="next" href="../interview/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -831,7 +831,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       五、朴素贝叶斯算法
     </span>
@@ -900,7 +900,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       六、决策树模型
     </span>
@@ -969,7 +969,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     <span class="md-ellipsis">
       七、随机森林分类模型
     </span>
@@ -1038,7 +1038,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
+  <a href="#_37" class="md-nav__link">
     <span class="md-ellipsis">
       八、回归树模型
     </span>
@@ -1314,7 +1314,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       十二、支持向量机模型
     </span>
@@ -1383,7 +1383,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       十三、聚类算法
     </span>
@@ -1452,7 +1452,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_49" class="md-nav__link">
+  <a href="#_52" class="md-nav__link">
     <span class="md-ellipsis">
       十四、降维算法
     </span>
@@ -1536,12 +1536,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../machinelearning/" class="md-nav__link">
+      <a href="../interview/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    机器学习教程补充
+    机器学习面试
     
   </span>
   
@@ -2032,7 +2032,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       五、朴素贝叶斯算法
     </span>
@@ -2101,7 +2101,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_26" class="md-nav__link">
     <span class="md-ellipsis">
       六、决策树模型
     </span>
@@ -2170,7 +2170,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
+  <a href="#_34" class="md-nav__link">
     <span class="md-ellipsis">
       七、随机森林分类模型
     </span>
@@ -2239,7 +2239,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
+  <a href="#_37" class="md-nav__link">
     <span class="md-ellipsis">
       八、回归树模型
     </span>
@@ -2515,7 +2515,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       十二、支持向量机模型
     </span>
@@ -2584,7 +2584,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_46" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       十三、聚类算法
     </span>
@@ -2653,7 +2653,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_49" class="md-nav__link">
+  <a href="#_52" class="md-nav__link">
     <span class="md-ellipsis">
       十四、降维算法
     </span>
@@ -3282,6 +3282,130 @@ knn = KNeighborsClassifier(
 <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </code></pre></div>
+<h4 id="_17">参数详解<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<ol>
+<li>penalty<ul>
+<li>作用：指定正则化类型。</li>
+<li>可选值：<code>'l1'</code>（L1正则化）、<code>'l2'</code>（L2正则化，默认值）、<code>'elasticnet'</code>（弹性网正则化）、<code>'none'</code>（无正则化）。</li>
+<li>说明：<ul>
+<li>L1正则化倾向于产生稀疏权重，适用于特征选择。</li>
+<li>L2正则化能防止过拟合，适用于特征间存在相关性的情况。</li>
+<li>弹性网正则化结合了L1和L2正则化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C<ul>
+<li>作用：正则化强度的倒数，值越小，正则化强度越大。</li>
+<li>默认值：<code>1.0</code>。</li>
+<li>取值范围：正浮点数。</li>
+</ul>
+</li>
+<li>dual<ul>
+<li>作用：选择求解原始问题还是对偶问题。</li>
+<li>可选值：<code>True</code>或<code>False</code>（默认值）。</li>
+<li>说明：仅当<code>penalty='l2'</code>且<code>solver='liblinear'</code>时有效。若样本数大于特征数，建议设为<code>False</code>。</li>
+</ul>
+</li>
+<li>solver<ul>
+<li>作用：选择优化算法。</li>
+<li>可选值：<ul>
+<li><code>'newton-cg'</code>：牛顿法。</li>
+<li><code>'lbfgs'</code>：拟牛顿法（默认值）。</li>
+<li><code>'liblinear'</code>：坐标下降法。</li>
+<li><code>'sag'</code>：随机平均梯度下降法。</li>
+<li><code>'saga'</code>：SAGA算法。</li>
+</ul>
+</li>
+<li>说明：<ul>
+<li><code>'liblinear'</code>适用于小数据集，支持L1正则化。</li>
+<li><code>'sag'</code>和<code>'saga'</code>适用于大数据集。</li>
+<li><code>'newton-cg'</code>、<code>'lbfgs'</code>仅支持L2正则化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>max_iter<ul>
+<li>作用：最大迭代次数。</li>
+<li>默认值：<code>100</code>。</li>
+<li>说明：若模型未收敛，可适当增大该值。</li>
+</ul>
+</li>
+<li>multi_class<ul>
+<li>作用：多分类策略。</li>
+<li>可选值：<ul>
+<li><code>'ovr'</code>：一对其余（One-vs-Rest）。</li>
+<li><code>'multinomial'</code>：多项式回归。</li>
+<li><code>'auto'</code>：自动选择。</li>
+</ul>
+</li>
+<li>说明：<code>'multinomial'</code>适用于多分类问题，需<code>solver</code>支持。</li>
+</ul>
+</li>
+<li>class_weight<ul>
+<li>作用：类别权重。</li>
+<li>可选值：<ul>
+<li><code>None</code>：所有类别的权重相同。</li>
+<li><code>'balanced'</code>：自动调整权重以平衡类别频率。</li>
+<li>字典：手动指定类别权重。</li>
+</ul>
+</li>
+<li>说明：用于处理类别不平衡问题。</li>
+</ul>
+</li>
+<li>fit_intercept<ul>
+<li>作用：是否计算截距。</li>
+<li>可选值：<code>True</code>（默认值）或<code>False</code>。</li>
+<li>说明：若设为<code>False</code>，则模型不包含截距项。</li>
+</ul>
+</li>
+<li>random_state<ul>
+<li>作用：随机数生成器的种子。</li>
+<li>默认值：<code>None</code>。</li>
+<li>说明：用于保证结果的可重复性。</li>
+</ul>
+</li>
+<li>tol<ul>
+<li>作用：收敛阈值。</li>
+<li>默认值：<code>1e-4</code>。</li>
+<li>说明：当损失函数的变化小于该值时，停止迭代。</li>
+</ul>
+</li>
+<li>warm_start<ul>
+<li>作用：是否使用前一次训练的结果作为初始化。</li>
+<li>可选值：<code>True</code>或<code>False</code>（默认值）。</li>
+<li>说明：若设为<code>True</code>，可继续训练模型。</li>
+</ul>
+</li>
+<li>n_jobs<ul>
+<li>作用：并行计算的CPU数量。</li>
+<li>默认值：<code>None</code>。</li>
+<li>说明：若设为<code>-1</code>，则使用所有可用的CPU。
+使用示例
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="n">创建模型实例</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span>
+    <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span>          <span class="n">使用L2正则化</span>
+    <span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>                 <span class="n">正则化强度</span>
+    <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span>        <span class="n">使用L</span><span class="o">-</span><span class="n">BFGS优化算法</span>
+    <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>          <span class="n">最大迭代次数</span>
+    <span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>    <span class="n">自动选择多分类策略</span>
+    <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span> <span class="n">平衡类别权重</span>
+<span class="p">)</span>
+<span class="n">训练模型</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">预测</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</code></pre></div>
+参数选择建议</li>
+</ul>
+</li>
+<li>小数据集：使用<code>solver='liblinear'</code>或<code>'lbfgs'</code>。</li>
+<li>大数据集：使用<code>solver='sag'</code>或<code>'saga'</code>。</li>
+<li>特征选择：使用<code>penalty='l1'</code>。</li>
+<li>类别不平衡：设置<code>class_weight='balanced'</code>或手动指定权重。
+通过合理设置这些参数，可以优化模型的性能和泛化能力。</li>
+</ol>
 <h3 id="45">4.5 逻辑回归算法调优<a class="headerlink" href="#45" title="Permanent link">&para;</a></h3>
 <p>逻辑回归算法的性能受正则化参数和特征选择的影响。可以通过交叉验证和网格搜索等方法调优正则化参数（如L1、L2正则化），选择最佳的特征子集以提高模型性能。    </p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
@@ -3306,11 +3430,11 @@ knn = KNeighborsClassifier(
 </code></pre></div>
 <h3 id="46">4.6 逻辑回归算法扩展<a class="headerlink" href="#46" title="Permanent link">&para;</a></h3>
 <p>逻辑回归算法可以与其他技术结合使用，如多项式逻辑回归（处理非线性关系）、正则化技术（防止过拟合）等，以提高算法的性能和适用性。</p>
-<h2 id="_17">五、朴素贝叶斯算法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h2 id="_18">五、朴素贝叶斯算法<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
 <p>朴素贝叶斯（Naive Bayes）算法是一种基于贝叶斯定理的概率分类算法，适用于文本分类、垃圾邮件检测等任务。其核心思想是假设特征之间相互独立，从而简化计算过程。</p>
 <h3 id="51">5.1 朴素贝叶斯算法原理<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
 <p>朴素贝叶斯算法是一种基于贝叶斯定理和特征条件独立假设的分类算法。</p>
-<h5 id="_18">贝叶斯定理<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<h4 id="_19">贝叶斯定理<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
 <p>贝叶斯定理描述了在已知相关证据下，事件发生的概率，公式为：</p>
 <div class="arithmatex">\[P(Y|X) = \frac{P(X|Y) \cdot P(Y)}{P(X)}\]</div>
 <p>其中：</p>
@@ -3320,11 +3444,50 @@ knn = KNeighborsClassifier(
 <li><span class="arithmatex">\(P(X)\)</span>：证据概率，特征<span class="arithmatex">\(X\)</span>出现的总概率。</li>
 <li><span class="arithmatex">\(P(Y|X)\)</span>：后验概率，给定特征<span class="arithmatex">\(X\)</span>时类别<span class="arithmatex">\(Y\)</span>的概率。</li>
 </ul>
-<h5 id="_19">特征条件独立假设<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h5>
+<h6 id="1_1">1. 疾病诊断<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h6>
+<p>背景：某罕见疾病的患病率为1%（先验概率<span class="arithmatex">\(P(患病)=0.01\)</span>）。检测方法的准确率为：</p>
+<ul>
+<li>患病者检测阳性的概率（似然<span class="arithmatex">\(P(阳性|患病)=0.99\)</span>）。</li>
+<li>未患病者检测阳性的概率（<span class="arithmatex">\(P(阳性|未患病)=0.05\)</span>）。</li>
+</ul>
+<p>问题：若某人检测阳性，实际患病的概率是多少（后验概率<span class="arithmatex">\(P(患病|阳性)\)</span>）？</p>
+<p>计算：</p>
+<ul>
+<li>全概率公式计算<span class="arithmatex">\(P(阳性)\)</span>：</li>
+</ul>
+<div class="arithmatex">\[
+P(阳性) = P(阳性|患病) \cdot P(患病) + P(阳性|未患病) \cdot P(未患病) = 0.99 \times 0.01 + 0.05 \times 0.99 = 0.0594
+\]</div>
+<ul>
+<li>应用贝叶斯定理：</li>
+</ul>
+<div class="arithmatex">\[
+P(患病|阳性) = \frac{P(阳性|患病) \cdot P(患病)}{P(阳性)} = \frac{0.99 \times 0.01}{0.0594} \approx 16.7\%
+\]</div>
+<p>结论：检测阳性后，实际患病概率约为16.7%，说明罕见病的阳性检测可能存在较高误诊率。</p>
+<h6 id="2">2. 垃圾邮件过滤<a class="headerlink" href="#2" title="Permanent link">&para;</a></h6>
+<p>背景：已知垃圾邮件占邮件总数的30%（<span class="arithmatex">\(P(垃圾邮件)=0.3\)</span>）。特征词“免费”在垃圾邮件中出现的概率为50%（<span class="arithmatex">\(P(免费|垃圾邮件)=0.5\)</span>），在正常邮件中出现的概率为5%（<span class="arithmatex">\(P(免费|正常邮件)=0.05\)</span>）。
+问题：若某邮件包含“免费”，它是垃圾邮件的概率是多少？</p>
+<p>计算：</p>
+<ul>
+<li>计算<span class="arithmatex">\(P(免费)\)</span>：</li>
+</ul>
+<div class="arithmatex">\[
+P(免费) = P(免费|垃圾邮件) \cdot P(垃圾邮件) + P(免费|正常邮件) \cdot P(正常邮件) = 0.5 \times 0.3 + 0.05 \times 0.7 = 0.185
+\]</div>
+<ul>
+<li>应用贝叶斯定理：</li>
+</ul>
+<div class="arithmatex">\[
+P(垃圾邮件|免费) = \frac{P(免费|垃圾邮件) \cdot P(垃圾邮件)}{P(免费)} = \frac{0.5 \times 0.3}{0.185} \approx 81.1\%
+\]</div>
+<p>结论：包含“免费”的邮件有81.1%的概率是垃圾邮件，有助于分类决策。</p>
+<p>通过以上例子，可以看出贝叶斯定理如何通过先验概率和新证据，更新对事件概率的判断，从而在实际问题中做出更准确的决策。</p>
+<h5 id="_20">特征条件独立假设<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
 <p>算法假设所有特征在给定类别下相互独立，即：</p>
 <div class="arithmatex">\[P(X|Y) = P(x_1|Y) \cdot P(x_2|Y) \cdot \ldots \cdot P(x_n|Y)\]</div>
 <p>这一假设简化了计算，但现实中特征往往存在依赖关系。</p>
-<h5 id="_20">算法步骤<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
+<h5 id="_21">算法步骤<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
 <ol>
 <li>计算先验概率：统计训练数据中每个类别的频率，得到<span class="arithmatex">\(P(Y)\)</span>。</li>
 <li>计算条件概率：对每个类别<span class="arithmatex">\(Y\)</span>，计算每个特征<span class="arithmatex">\(X\)</span>的条件概率<span class="arithmatex">\(P(X|Y)\)</span>。</li>
@@ -3332,14 +3495,14 @@ knn = KNeighborsClassifier(
 <li>分类决策：选择后验概率最大的类别作为预测结果。</li>
 </ol>
 <h3 id="52">5.2 朴素贝叶斯算法优缺点<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
-<h4 id="_21">优点<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<h4 id="_22">优点<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
 <ul>
 <li>简单易懂，易于实现</li>
 <li>计算效率高，适合大规模数据集</li>
 <li>对小样本数据表现良好</li>
 <li>能处理多分类问题</li>
 </ul>
-<h4 id="_22">缺点<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<h4 id="_23">缺点<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>假设特征独立，实际应用中可能不成立</li>
 <li>对零概率问题敏感，需使用平滑技术</li>
@@ -3396,20 +3559,65 @@ knn = KNeighborsClassifier(
 <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
 </code></pre></div>
+<p><code>SelectKBest</code>和<code>chi2</code>是scikit-learn库中用于特征选择的重要工具，主要用于从数据集中选择与目标变量最相关的K个特征。</p>
+<h5 id="selectkbest">SelectKBest<a class="headerlink" href="#selectkbest" title="Permanent link">&para;</a></h5>
+<ul>
+<li>功能：<code>SelectKBest</code>是一个基于统计度量的单变量特征选择类，它选择与目标变量最相关的K个特征。</li>
+<li>参数：<ul>
+<li><code>score_func</code>：用于评估特征相关性的函数，如卡方检验（<code>chi2</code>）、F检验（<code>f_classif</code>）、互信息（<code>mutual_info_classif</code>）等。</li>
+<li><code>k</code>：要选择的特征数量。</li>
+</ul>
+</li>
+<li>用法：
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="n">使用卡方检验作为评估函数</span><span class="err">，</span><span class="n">选择前K个最佳特征</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h5 id="chi2">chi2<a class="headerlink" href="#chi2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>功能：<code>chi2</code>函数用于计算特征与目标变量之间的卡方统计量和p值，适用于分类问题，要求特征值为非负数。</li>
+<li>输出：返回每个特征的卡方统计量和p值，卡方统计量越大，表示特征与目标变量的相关性越强。</li>
+<li>用法：
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">chi2</span>
+<span class="n">scores</span><span class="p">,</span> <span class="n">pvalues</span> <span class="o">=</span> <span class="n">chi2</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h5 id="_24">示例<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">SelectKBest</span><span class="p">,</span> <span class="n">chi2</span>
+<span class="n">加载数据</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">使用SelectKBest和chi2选择前2个最佳特征</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span><span class="o">=</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">输出所选特征的索引</span>
+<span class="n">selected_features</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selected features indices:&quot;</span><span class="p">,</span> <span class="n">selected_features</span><span class="p">)</span>
+</code></pre></div>
+<h6 id="_25">注意事项<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h6>
+<ul>
+<li>数据预处理：在使用<code>chi2</code>之前，确保特征值为非负数，可能需要进行标准化或离散化处理。</li>
+<li>特征相关性：<code>SelectKBest</code>基于单变量统计度量，可能忽略特征之间的交互作用。</li>
+<li>K值选择：通过交叉验证或可视化得分曲线确定最佳的K值。</li>
+</ul>
+<p>通过合理使用<code>SelectKBest</code>和<code>chi2</code>，可以有效降低数据维度，提高模型训练效率和预测性能。</p>
 <h3 id="56">5.6 朴素贝叶斯算法扩展<a class="headerlink" href="#56" title="Permanent link">&para;</a></h3>
 <p>朴素贝叶斯算法可以与其他技术结合使用，如多项式朴素贝叶斯（处理文本数据）、贝叶斯网络（捕捉特征之间的关系）等，以提高算法的性能和适用性。      </p>
-<h2 id="_23">六、决策树模型<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h2 id="_26">六、决策树模型<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
 <p>决策树（Decision Tree）是一种基于树形结构的监督学习算法，适用于分类和回归任务。其核心思想是通过一系列的决策规则将数据划分为不同的类别或数值范围。</p>
 <h3 id="61">6.1 决策树模型原理<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
 <p>决策树模型是一种基于树状结构的监督学习算法，用于分类和回归任务。其原理主要包括以下步骤：</p>
-<h5 id="_24">模型结构<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h5>
+<h5 id="_27">模型结构<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
 <ul>
 <li>根节点：树的起点，包含所有样本数据，是第一个特征判断的起点。</li>
 <li>内部节点：表示对某个特征的判断条件，每个内部节点会根据特征值分裂为多个子节点。</li>
 <li>分支：连接节点的线段，代表特征判断的结果。</li>
 <li>叶子节点：树的终点，输出最终的预测结果。</li>
 </ul>
-<h5 id="_25">特征选择<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
+<h5 id="_28">特征选择<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h5>
 <ul>
 <li>目标：选择最优特征进行节点分裂，以提高子节点的纯度。</li>
 <li>衡量指标：<ul>
@@ -3449,7 +3657,7 @@ knn = KNeighborsClassifier(
 </li>
 <li>作用：在CART（分类与回归树）决策树算法中，选择基尼指数最小的特征进行划分。</li>
 </ul>
-<h6 id="_26">总结<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h6>
+<h6 id="_29">总结<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h6>
 <ul>
 <li>信息熵和基尼指数：都是衡量数据纯度的指标，值越小，纯度越高<dfn seq=source_group_web_10 type=source_group_pro>8。</li>
 <li>信息增益：用于衡量特征划分对纯度提升的效果，值越大，特征的分类能力越强。</li>
@@ -3460,14 +3668,14 @@ knn = KNeighborsClassifier(
 </ul>
 </li>
 </ul>
-<h5 id="_27">树的生成<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
+<h5 id="_30">树的生成<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h5>
 <ol>
 <li>初始节点：将所有样本视为初始节点。</li>
 <li>最优分割：计算每个特征的最优分割点，选择提升纯度最大的分割方式。</li>
 <li>递归分裂：根据最优分割点将数据集划分为子集，递归地对子集重复上述过程。</li>
 <li>停止条件：当子节点足够“纯”或满足预设条件（如达到最大深度、样本数小于阈值）时停止分裂。</li>
 </ol>
-<h5 id="_28">剪枝处理<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h5>
+<h5 id="_31">剪枝处理<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h5>
 <ul>
 <li>目的：防止过拟合，提高模型泛化能力。</li>
 <li>方法：<ul>
@@ -3478,7 +3686,7 @@ knn = KNeighborsClassifier(
 </ul>
 <p>决策树模型通过递归地选择最优特征进行分裂，构建树状结构，实现对数据的分类或回归。其优点是易于理解和解释，但对连续字段和时间序列数据处理能力较弱。</p>
 <h3 id="62">6.2 决策树模型优缺点<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
-<h4 id="_29">优点<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<h4 id="_32">优点<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
 <ul>
 <li>易于理解和解释，直观展示决策过程</li>
 <li>计算效率高，适合大规模数据集</li>
@@ -3486,7 +3694,7 @@ knn = KNeighborsClassifier(
 <li>能处理缺失值和异常值</li>
 <li>可处理数值型和类别型特征</li>
 </ul>
-<h4 id="_30">缺点<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<h4 id="_33">缺点<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
 <ul>
 <li>容易过拟合，需剪枝等技术防止</li>
 <li>对噪声敏感，可能影响模型性能</li>
@@ -3553,7 +3761,7 @@ knn = KNeighborsClassifier(
 </code></pre></div></p>
 <h3 id="66">6.6 决策树模型扩展<a class="headerlink" href="#66" title="Permanent link">&para;</a></h3>
 <p>决策树模型可以与其他技术结合使用，如随机森林（集成多棵决策树）、梯度提升树（提升弱分类器）等，以提高算法的性能和适用性。</p>
-<h2 id="_31">七、随机森林分类模型<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h2 id="_34">七、随机森林分类模型<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
 <p>随机森林（Random Forest）是一种集成学习算法，通过构建多棵决策树并结合其预测结果来提高模型的性能和稳定性。随机森林适用于分类和回归任务，具有较强的抗过拟合能力。</p>
 <h3 id="71">7.1 随机森林分类模型原理<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
 <p>随机森林通过以下步骤构建模型：</p>
@@ -3563,7 +3771,7 @@ knn = KNeighborsClassifier(
 <li>对于分类任务，通过多数投票法结合所有决策树的预测结果；对于回归任务，通过平均值结合预测结果。</li>
 </ol>
 <h3 id="72">7.2 随机森林分类模型优缺点<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
-<h4 id="_32">优点<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<h4 id="_35">优点<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
 <ul>
 <li>抗过拟合能力强，适合高维数据</li>
 <li>计算效率高，适合大规模数据集</li>
@@ -3571,7 +3779,7 @@ knn = KNeighborsClassifier(
 <li>能处理缺失值和异常值</li>
 <li>提供特征重要性评估</li>
 </ul>
-<h4 id="_33">缺点<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<h4 id="_36">缺点<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
 <ul>
 <li>模型复杂，难以解释</li>
 <li>训练时间较长，尤其是树的数量较多时</li>
@@ -3639,19 +3847,19 @@ knn = KNeighborsClassifier(
 </code></pre></div></p>
 <h3 id="76">7.6 随机森林分类模型扩展<a class="headerlink" href="#76" title="Permanent link">&para;</a></h3>
 <p>随机森林分类模型可以与其他技术结合使用，如梯度提升树（提升弱分类器）、极端随机树（增加随机性）等，以提高算法的性能和适用性。</p>
-<h2 id="_34">八、回归树模型<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h2 id="_37">八、回归树模型<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
 <p>回归树（Regression Tree）是一种基于树形结构的监督学习算法，适用于回归任务。其核心思想是通过一系列的决策规则将数据划分为不同的数值范围，从而进行数值预测。</p>
 <h3 id="81">8.1 回归树模型原理<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
 <p>回归树通过递归地选择最优特征进行数据划分，构建一棵树形结构。每个节点表示一个特征，每个分支表示该特征的取值范围，每个叶节点表示一个数值预测结果。常用的划分标准包括均方误差（Mean Squared Error, MSE）和平均绝对误差（Mean Absolute Error, MAE）。</p>
 <h3 id="82">8.2 回归树模型优缺点<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
-<h4 id="_35">优点<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<h4 id="_38">优点<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
 <ul>
 <li>易于理解和解释，直观展示决策过程</li>
 <li>计算效率高，适合大规模数据集</li>
 <li>能处理缺失值和异常值</li>
 <li>可处理数值型和类别型特征</li>
 </ul>
-<h4 id="_36">缺点<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<h4 id="_39">缺点<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h4>
 <ul>
 <li>容易过拟合，需剪枝等技术防止</li>
 <li>对噪声敏感，可能影响模型性能</li>
@@ -3727,7 +3935,7 @@ knn = KNeighborsClassifier(
 <li>重复步骤2-4，直到达到预定的树数量或其他停止条件。    </li>
 </ol>
 <h3 id="92-gbdt">9.2 GBDT模型优缺点<a class="headerlink" href="#92-gbdt" title="Permanent link">&para;</a></h3>
-<h4 id="_37">优点<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
+<h4 id="_40">优点<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
 <ul>
 <li>抗过拟合能力强，适合高维数据</li>
 <li>计算效率高，适合大规模数据集</li>
@@ -3735,7 +3943,7 @@ knn = KNeighborsClassifier(
 <li>能处理缺失值和异常值</li>
 <li>提供特征重要性评估</li>
 </ul>
-<h4 id="_38">缺点<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<h4 id="_41">缺点<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
 <ul>
 <li>模型复杂，难以解释</li>
 <li>训练时间较长，尤其是树的数量较多时</li>
@@ -3815,7 +4023,7 @@ knn = KNeighborsClassifier(
 <li>重复步骤2-4，直到达到预定的树数量或其他停止条件。    </li>
 </ol>
 <h3 id="102-xgboost">10.2 XGBoost模型优缺点<a class="headerlink" href="#102-xgboost" title="Permanent link">&para;</a></h3>
-<h4 id="_39">优点<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h4>
+<h4 id="_42">优点<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
 <ul>
 <li>高效的计算性能，适合大规模数据集</li>
 <li>抗过拟合能力强，适合高维数据</li>
@@ -3824,7 +4032,7 @@ knn = KNeighborsClassifier(
 <li>提供特征重要性评估</li>
 <li>支持并行计算和分布式计算</li>
 </ul>
-<h4 id="_40">缺点<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<h4 id="_43">缺点<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
 <ul>
 <li>模型复杂，难以解释</li>
 <li>训练时间较长，尤其是树的数量较多时</li>
@@ -3904,7 +4112,7 @@ knn = KNeighborsClassifier(
 <li>重复步骤2-4，直到达到预定的树数量或其他停止条件。</li>
 </ol>
 <h3 id="112-lightgbm">11.2 LightGBM模型优缺点<a class="headerlink" href="#112-lightgbm" title="Permanent link">&para;</a></h3>
-<h4 id="_41">优点<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<h4 id="_44">优点<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
 <ul>
 <li>高效的计算性能，适合大规模数据集</li>
 <li>抗过拟合能力强，适合高维数据</li>
@@ -3915,7 +4123,7 @@ knn = KNeighborsClassifier(
 <li>采用基于直方图的决策树算法，减少内存使用</li>
 <li>支持类别特征，减少预处理工作</li>
 </ul>
-<h4 id="_42">缺点<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
+<h4 id="_45">缺点<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
 <ul>
 <li>模型复杂，难以解释</li>
 <li>训练时间较长，尤其是树的数量较多时</li>
@@ -3983,7 +4191,7 @@ knn = KNeighborsClassifier(
 </code></pre></div></p>
 <h3 id="116-lightgbm">11.6 LightGBM模型扩展<a class="headerlink" href="#116-lightgbm" title="Permanent link">&para;</a></h3>
 <p>LightGBM模型可以与其他技术结合使用，如XGBoost（极端梯度提升）、CatBoost（处理类别特征）等，以提高算法的性能和适用性。    其计算公式为：(d(p, q) = \left( \sum_{i=1}^{n} |p_i - q_i|^r \right)^{1</p>
-<h2 id="_43">十二、支持向量机模型<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<h2 id="_46">十二、支持向量机模型<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
 <p>支持向量机（Support Vector Machine, SVM）是一种强大的监督学习算法，广泛应用于分类和回归任务。其核心思想是通过寻找最优超平面，将不同类别的数据点分开，从而实现分类。</p>
 <h3 id="121">12.1 支持向量机模型原理<a class="headerlink" href="#121" title="Permanent link">&para;</a></h3>
 <p>支持向量机通过以下步骤构建模型：</p>
@@ -3994,14 +4202,14 @@ knn = KNeighborsClassifier(
 <li>对于非线性可分的数据，使用软间隔（Soft Margin）技术，允许部分样本点位于错误的一侧。  </li>
 </ol>
 <h3 id="122">12.2 支持向量机模型优缺点<a class="headerlink" href="#122" title="Permanent link">&para;</a></h3>
-<h4 id="_44">优点<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<h4 id="_47">优点<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
 <ul>
 <li>在高维空间中表现良好，适合复杂数据</li>
 <li>能处理非线性分类问题</li>
 <li>对小样本数据表现良好</li>
 <li>具有较强的泛化能力</li>
 </ul>
-<h4 id="_45">缺点<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<h4 id="_48">缺点<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
 <ul>
 <li>计算复杂度高，训练时间较长</li>
 <li>对参数选择和核函数敏感</li>
@@ -4069,7 +4277,7 @@ knn = KNeighborsClassifier(
 </code></pre></div></p>
 <h3 id="126">12.6 支持向量机模型扩展<a class="headerlink" href="#126" title="Permanent link">&para;</a></h3>
 <p>支持向量机模型可以与其他技术结合使用，如核方法（如多项式核、径向基函数核等）、集成学习（如Bagging、Boosting等）等，以提高算法的性能和适用性。</p>
-<h2 id="_46">十三、聚类算法<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<h2 id="_49">十三、聚类算法<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
 <p>聚类（Clustering）是一种无监督学习方法，用于将数据集划分为若干个簇，使得同一簇内的数据点相似度较高，而不同簇之间的数据点相似度较低。常见的聚类算法包括K均值（K-Means）、层次聚类（Hierarchical Clustering）和DBSCAN等。</p>
 <h3 id="131">13.1 聚类算法原理<a class="headerlink" href="#131" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4078,13 +4286,13 @@ knn = KNeighborsClassifier(
 <li>DBSCAN通过密度连接的方式识别簇，能够发现任意形状的簇，并能处理噪声点。</li>
 </ul>
 <h3 id="132">13.2 聚类算法优缺点<a class="headerlink" href="#132" title="Permanent link">&para;</a></h3>
-<h4 id="_47">优点<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<h4 id="_50">优点<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
 <ul>
 <li>能发现数据中的潜在结构和模式</li>
 <li>不需要预先标注数据，适用于无监督学习</li>
 <li>适用于大规模数据集</li>
 </ul>
-<h4 id="_48">缺点<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<h4 id="_51">缺点<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h4>
 <ul>
 <li>聚类结果受初始参数和算法选择影响较大</li>
 <li>可能难以解释聚类结果</li>
@@ -4132,7 +4340,7 @@ knn = KNeighborsClassifier(
 </code></pre></div></p>
 <h3 id="136">13.6 聚类算法扩展<a class="headerlink" href="#136" title="Permanent link">&para;</a></h3>
 <p>聚类算法可以与其他技术结合使用，如降维（如PCA、t-SNE等）以提高聚类效果，或与分类算法结合进行半监督学习等。</p>
-<h2 id="_49">十四、降维算法<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h2>
+<h2 id="_52">十四、降维算法<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h2>
 <p>降维（Dimensionality Reduction）是一种数据预处理技术，用于减少数据集的特征数量，同时尽可能保留数据的主要信息。常见的降维算法包括主成分分析（PCA）、线性判别分析（LDA）和t-SNE等。</p>
 <h3 id="141">14.1 降维算法原理<a class="headerlink" href="#141" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4141,13 +4349,13 @@ knn = KNeighborsClassifier(
 <li>t-SNE通过非线性映射将高维数据嵌入到低维空间，保留数据的局部结构，适用于可视化高维数据。</li>
 </ul>
 <h3 id="142">14.2 降维算法优缺点<a class="headerlink" href="#142" title="Permanent link">&para;</a></h3>
-<h4 id="_50">优点<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<h4 id="_53">优点<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
 <ul>
 <li>减少数据维度，降低计算复杂度</li>
 <li>去除冗余和噪声，提高模型性能</li>
 <li>便于数据可视化和解释</li>
 </ul>
-<h4 id="_51">缺点<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h4>
+<h4 id="_54">缺点<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h4>
 <ul>
 <li>可能丢失部分信息，影响模型性能</li>
 <li>需要选择合适的降维方法和参数</li>
@@ -4248,10 +4456,10 @@ knn = KNeighborsClassifier(
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.section", "navigation.expand", "navigation.tabs", "navigation.sections", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.code.annotate", "math"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.section", "navigation.expand", "navigation.tabs", "navigation.sections", "navigation.indexes", "content.code.copy", "content.tabs.link", "content.code.annotate", "math"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../styles/javascripts/config.js"></script>
       
