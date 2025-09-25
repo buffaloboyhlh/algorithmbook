@@ -1777,10 +1777,186 @@ print("Explained variance ratio:", pca.explained_variance_ratio_)
 
 
 
+## 十五、神经网络模型
 
+神经网络（Neural Network）是一种模拟生物神经系统结构和功能的机器学习算法，广泛应用于分类、回归和生成任务。其核心思想是通过多层神经元的连接和非线性激活函数，实现复杂的函数映射和模式识别。
 
+### 15.1 神经网络模型原理
 
+神经网络通过以下步骤构建模型：
 
+1. 构建网络结构，包括输入层、隐藏层和输出层，每层由若干神经元组成。
+2. 初始化权重和偏置，通常使用随机值。
+3. 前向传播：将输入数据通过网络传递，计算每个神经元的激活值，最终得到输出结果。
+4. 计算损失函数，衡量预测结果与真实值之间的差异。
+5. 反向传播：通过链式法则计算损失函数对权重和偏置的梯度，并使用优化算法（如梯度下降）更新权重和偏置。
+6. 重复步骤3-5，直到达到预定的迭代次数或损失函数收敛。
+
+### 15.2 神经网络模型优缺点
+
+#### 优点
+- 能处理复杂的非线性关系，适合高维数据
+- 具有较强的泛化能力，适合大规模数据集
+- 可通过增加层数和神经元数量提高模型容量
+- 支持多种任务，如分类、回归和生成
+
+#### 缺点
+- 训练时间较长，计算资源需求高
+- 需要大量标注数据，易过拟合
+- 模型复杂，难以解释
+- 对超参数选择敏感，如学习率、层数等
+
+### 15.3 神经网络模型应用场景
+
+神经网络模型适用于以下场景：
+
+- 图像识别，如手写数字识别、物体检测等
+- 自然语言处理，如文本分类、机器翻译等
+- 语音识别，如语音转文字、语音合成等
+- 推荐系统，如个性化推荐、广告投放等
+- 游戏AI，如围棋、扑克等游戏中的智能决策
+- 医疗诊断，如疾病预测、医学图像分析等
+- 金融预测，如股票价格预测、信用评分等
+
+### 15.4 神经网络模型实现
+
+```python
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import load_iris
+from sklearn.metrics import classification_report, confusion_matrix
+
+# 加载数据集
+data = load_iris()
+X = data.data
+y = data.target
+
+# 划分训练集和测试集
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 数据标准化
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# 转换为Tensor
+X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
+X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
+y_train_tensor = torch.tensor(y_train, dtype=torch.long)
+y_test_tensor = torch.tensor(y_test, dtype=torch.long)
+
+# 定义神经网络模型
+class SimpleNN(nn.Module):
+    def __init__(self, input_dim, hidden_dim, output_dim):
+        super(SimpleNN, self).__init__()
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+    
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
+
+input_dim = X_train.shape[1]
+hidden_dim = 16
+output_dim = len(np.unique(y))
+
+model = SimpleNN(input_dim, hidden_dim, output_dim)
+
+# 定义损失函数和优化器
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+# 训练模型
+epochs = 100
+for epoch in range(epochs):
+    model.train()
+    optimizer.zero_grad()
+    outputs = model(X_train_tensor)
+    loss = criterion(outputs, y_train_tensor)
+    loss.backward()
+    optimizer.step()
+    if (epoch+1) % 20 == 0:
+        print(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}")
+
+# 评估模型
+model.eval()
+with torch.no_grad():
+    outputs = model(X_test_tensor)
+    _, predicted = torch.max(outputs, 1)
+    y_pred = predicted.numpy()
+    print(confusion_matrix(y_test, y_pred))
+    print(classification_report(y_test, y_pred))
+
+```
+
+### 15.5 神经网络模型调优
+
+神经网络模型的性能受网络结构和超参数选择的影响。可以通过调整层数、神经元数量、学习率、批量大小等参数，以及使用正则化技术（如Dropout、L2正则化）和优化算法（如Adam、RMSprop）等，以提高模型性能。
+```python# 示例：调整学习率和批量大小
+learning_rates = [0.001, 0.01, 0.1]
+batch_sizes = [16, 32, 64]
+for lr in learning_rates:
+    for batch_size in batch_sizes:
+        # 重新定义优化器
+        optimizer = optim.Adam(model.parameters(), lr=lr)
+        # 训练模型（省略具体训练代码）
+        # 评估模型（省略具体评估代码）
+        print(f"Learning Rate: {lr}, Batch Size: {batch_size}, Evaluation Metrics: ...")
+```
+
+### 15.6 神经网络模型扩展
+
+神经网络模型可以与其他技术结合使用，如卷积神经网络（CNN）用于图像处理，循环神经网络（RNN）用于序列数据处理，生成对抗网络（GAN）用于数据生成等，以提高算法的性能和适用性。
+```python
+# 示例：使用卷积神经网络（CNN）处理图像数据
+class SimpleCNN(nn.Module):
+    def __init__(self, input_channels, num_classes):
+        super(SimpleCNN, self).__init__()
+        self.conv1 = nn.Conv2d(input_channels, 32, kernel_size=3, stride=1, padding=1)
+        self.pool = nn.MaxPool2d(kernel_size=2, stride=2, padding=0)
+        self.fc1 = nn.Linear(32 * 16 * 16, num_classes)  # 假设输入图像大小为32x32
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = x.view(-1, 32 * 16 * 16)
+        x = self.fc1(x)
+        return x
+``` 
+
+## 十六、概率图模型
+
+概率图模型（Probabilistic Graphical Model, PGM）是一种结合概率论和图论的模型，用于表示和处理复杂的随机变量关系。常见的概率图模型包括贝叶斯网络（Bayesian Network）和马尔可夫随机场（Markov Random Field, MRF）等。
+
+### 16.1 概率图模型原理
+
+- 贝叶斯网络通过有向无环图（DAG）表示随机变量之间的条件依赖关系，适用于表示因果关系。
+- 马尔可夫随机场通过无向图表示随机变量之间的联合分布，适用于表示对称关系。
+
+### 16.2 概率图模型优缺点
+#### 优点
+- 能表示复杂的随机变量关系
+- 结合概率论和图论，具有良好的解释性
+- 支持不确定性推理和决策分析
+#### 缺点
+- 模型构建复杂，需专业知识
+- 计算复杂度高，尤其是大规模图模型
+- 需要大量数据进行参数估计
+### 16.3 概率图模型应用场景
+概率图模型适用于以下场景：
+- 诊断系统，如医疗诊断、故障检测等
+- 自然语言处理，如语义分析、信息抽取等
+- 计算机视觉，如图像分割、目标识别等
+- 推荐系统，如个性化推荐、广告投放等
+- 生物信息学，如基因调控网络分析等
+- 社会网络分析，如社区发现、影响力传播等
+### 16.4 概率图模型实现
+以下是使用Python和pgmpy库实现贝叶斯网络的示例代码
 
 
 
