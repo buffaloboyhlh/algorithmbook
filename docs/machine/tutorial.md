@@ -573,6 +573,253 @@ print(classification_report(y_test, y_pred))
 ### 3.6 KNN算法扩展
 KNN算法可以与其他技术结合使用，如加权KNN（根据距离加权邻居的贡献）、局部敏感哈希（加速高维数据的邻居搜索）等，以提高算法的性能和适用性。    
 
+## 四、线性回归算法
+
+
+### 1. 原理
+
+#### 1.1 基本概念
+线性回归是一种用于建立自变量（特征）与因变量（目标）之间线性关系的统计学习方法。
+
+#### 1.2 数学模型
+简单线性回归公式：
+$$ y = \beta_0 + \beta_1x + \epsilon $$
+
+多元线性回归公式：
+$$ y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_nx_n + \epsilon $$
+
+其中：
+
+-  $y$ ：因变量（目标）
+-  $x_i$：自变量（特征）
+- $ \beta_0 $：截距项
+- $\beta_i $：系数
+- $\epsilon$：误差项
+
+#### 1.3 最小二乘法
+通过最小化残差平方和来估计参数：
+
+\[ \min \sum_{i=1}^{n}(y_i - \hat{y}_i)^2 \]
+
+### 2. 优缺点
+
+#### 2.1 优点
+- **简单易懂**：模型直观，易于解释
+- **计算效率高**：训练和预测速度快
+- **可解释性强**：系数直接反映特征重要性
+- **理论基础扎实**：有完善的统计理论支持
+
+#### 2.2 缺点
+- **对非线性关系拟合差**：只能捕捉线性关系
+- **对异常值敏感**：异常值会显著影响模型
+- **假设条件严格**：需要满足线性、独立性、同方差等假设
+- **多重共线性问题**：特征高度相关时模型不稳定
+
+### 3. 应用场景
+
+1. **房价预测**：根据房屋特征预测价格
+2. **销售预测**：基于历史数据预测未来销量
+3. **经济分析**：分析经济指标之间的关系
+4. **医学研究**：研究风险因素与疾病的关系
+5. **工业控制**：工艺参数与产品质量的关系
+
+### 4. 代码实现
+
+#### 4.1 Python实现（使用scikit-learn）
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.datasets import make_regression
+from sklearn.preprocessing import StandardScaler
+
+# 生成示例数据
+X, y = make_regression(n_samples=100, n_features=1, noise=10, random_state=42)
+
+# 数据标准化
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# 划分训练集和测试集
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# 创建并训练模型
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# 预测
+y_pred = model.predict(X_test)
+
+# 评估模型
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"均方误差(MSE): {mse:.2f}")
+print(f"R²分数: {r2:.2f}")
+print(f"系数: {model.coef_}")
+print(f"截距: {model.intercept_:.2f}")
+
+# 可视化结果
+plt.figure(figsize=(10, 6))
+plt.scatter(X_test, y_test, color='blue', label='实际值')
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='预测值')
+plt.xlabel('特征')
+plt.ylabel('目标')
+plt.title('线性回归结果')
+plt.legend()
+plt.show()
+```
+
+#### 4.2 从零实现线性回归
+
+```python
+import numpy as np
+
+class SimpleLinearRegression:
+    def __init__(self):
+        self.coef_ = None
+        self.intercept_ = None
+    
+    def fit(self, X, y):
+        # 添加截距项
+        X = np.column_stack([np.ones(X.shape[0]), X])
+        
+        # 使用正规方程求解
+        theta = np.linalg.inv(X.T @ X) @ X.T @ y
+        
+        self.intercept_ = theta[0]
+        self.coef_ = theta[1:]
+    
+    def predict(self, X):
+        return self.intercept_ + X @ self.coef_
+
+# 使用示例
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([2, 4, 6, 8, 10])
+
+model = SimpleLinearRegression()
+model.fit(X, y)
+predictions = model.predict(np.array([[6]]))
+print(f"预测结果: {predictions[0]}")
+```
+
+### 5. 算法调优
+
+#### 5.1 数据预处理
+
+```python
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler
+from sklearn.pipeline import Pipeline
+
+# 创建数据处理管道
+pipeline = Pipeline([
+    ('scaler', StandardScaler()),
+    ('poly', PolynomialFeatures(degree=2)),  # 添加多项式特征
+    ('model', LinearRegression())
+])
+
+pipeline.fit(X_train, y_train)
+```
+
+#### 5.2 正则化方法
+
+```python
+from sklearn.linear_model import Ridge, Lasso, ElasticNet
+
+# 岭回归（L2正则化）
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_train, y_train)
+
+# Lasso回归（L1正则化）
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)
+
+# 弹性网络（L1+L2正则化）
+elastic_net = ElasticNet(alpha=0.1, l1_ratio=0.5)
+elastic_net.fit(X_train, y_train)
+```
+
+#### 5.3 交叉验证调优
+
+```python
+from sklearn.model_selection import GridSearchCV
+
+# 参数网格
+param_grid = {
+    'alpha': [0.001, 0.01, 0.1, 1, 10, 100],
+    'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9]
+}
+
+# 网格搜索
+grid_search = GridSearchCV(ElasticNet(), param_grid, cv=5, scoring='r2')
+grid_search.fit(X_train, y_train)
+
+print(f"最佳参数: {grid_search.best_params_}")
+print(f"最佳分数: {grid_search.best_score_:.3f}")
+```
+
+#### 5.4 特征工程技巧
+
+```python
+# 1. 特征选择
+from sklearn.feature_selection import SelectKBest, f_regression
+
+selector = SelectKBest(score_func=f_regression, k=5)
+X_selected = selector.fit_transform(X, y)
+
+# 2. 异常值处理
+from scipy import stats
+z_scores = stats.zscore(X)
+X_clean = X[(z_scores < 3).all(axis=1)]
+
+# 3. 交互特征
+from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=2, interaction_only=True)
+X_interaction = poly.fit_transform(X)
+```
+
+#### 5.5 模型诊断
+
+```python
+import seaborn as sns
+from scipy import stats
+
+# 残差分析
+residuals = y_test - y_pred
+
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 3, 1)
+plt.scatter(y_pred, residuals)
+plt.xlabel('预测值')
+plt.ylabel('残差')
+plt.title('残差图')
+
+plt.subplot(1, 3, 2)
+stats.probplot(residuals, dist="norm", plot=plt)
+plt.title('QQ图')
+
+plt.subplot(1, 3, 3)
+sns.histplot(residuals, kde=True)
+plt.title('残差分布')
+
+plt.tight_layout()
+plt.show()
+```
+
+### 6. 最佳实践建议
+
+1. **数据质量优先**：确保数据清洁，处理缺失值和异常值
+2. **特征工程关键**：合适的特征选择和处理能显著提升性能
+3. **正则化应用**：特别是当特征数量较多或存在多重共线性时
+4. **模型验证**：使用交叉验证确保模型泛化能力
+5. **可解释性**：利用线性回归的可解释性进行业务洞察
+
+
+
 
 ## 四、逻辑回归算法
 
