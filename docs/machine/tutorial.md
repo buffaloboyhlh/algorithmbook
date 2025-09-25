@@ -517,6 +517,34 @@ knn = KNeighborsClassifier(
 
 根据数据规模（样本量、维度）和分布选择合适参数，通常需结合交叉验证优化。
 
+#### train_test_split  参数详解
+
+`train_test_split` 是 scikit-learn 库中用于将数据集分割成训练集和测试集的一个非常有用的函数。以下是该函数的主要参数及其详细说明：
+
+1. arrays: 这是一个位置参数，可以接受一个或多个数组-like 数据结构（如列表、NumPy 数组、Pandas DataFrame 或 Series）。这些数组应该具有相同的长度。
+2. test_size: 测试集所占的比例，通常是介于 0 和 1 之间的浮点数。例如，`test_size=0.2` 表示 20% 的数据将被用作测试集。也可以指定为整数值，表示具体的样本数量。
+3. train_size: 训练集所占的比例，通常也是介于 0 和 1 之间的浮点数。与 `test_size` 类似，也可以指定为整数值。注意，`train_size` 和 `test_size` 不能同时使用，除非它们的总和等于 1.
+4. random_state: 控制随机种子的整数值，确保每次运行代码时都能得到相同的结果，从而保证结果的可重复性。
+5. shuffle: 布尔值，默认为 True。如果设置为 False，则不打乱数据顺序直接按比例划分。
+6. stratify: 指定分层抽样的依据列。当设置了 stratify 参数后，会按照该列的类别分布来进行数据划分，使得训练集和测试集中各类别的比例保持一致。这在处理不平衡数据集时特别有用。
+
+下面是一个简单的例子来演示如何使用 `train_test_split` 函数：
+
+```python
+from sklearn.model_selection import train_test_split
+import numpy as np
+创建一些示例数据
+X = np.array([[1, 2], [3, 4], [5, 6], [7, 8]])
+y = np.array([0, 1, 0, 1])
+使用 train_test_split 分割数据集
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+print("Training features:\n", X_train)
+print("Testing features:\n", X_test)
+print("Training labels:\n", y_train)
+print("Testing labels:\n", y_test)
+```
+在这个例子中，我们创建了一个简单的特征矩阵 `X` 和标签向量 `y`，然后使用 `train_test_split` 将其分为训练集和测试集，并指定了测试集占 25%，并且通过 `random_state` 来固定随机种子以获得可重复的结果。
+
 
 
 ### 3.5 KNN算法调优
