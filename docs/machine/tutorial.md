@@ -1957,34 +1957,177 @@ class SimpleCNN(nn.Module):
         return x
 ``` 
 
-## 十六、概率图模型
 
-概率图模型（Probabilistic Graphical Model, PGM）是一种结合概率论和图论的模型，用于表示和处理复杂的随机变量关系。常见的概率图模型包括贝叶斯网络（Bayesian Network）和马尔可夫随机场（Markov Random Field, MRF）等。
+## 十六、集成学习
 
-### 16.1 概率图模型原理
+###  1. 什么是集成学习（核心思想）
 
-- 贝叶斯网络通过有向无环图（DAG）表示随机变量之间的条件依赖关系，适用于表示因果关系。
-- 马尔可夫随机场通过无向图表示随机变量之间的联合分布，适用于表示对称关系。
+集成学习通过把多个基学习器（base learners）组合起来形成一个更强的“集成模型”。直观理由：多个弱学习器的预测会有差异，把它们合理结合（投票、加权、堆叠等）可以降低方差、降低偏差或提高鲁棒性。
 
-### 16.2 概率图模型优缺点
-#### 优点
-- 能表示复杂的随机变量关系
-- 结合概率论和图论，具有良好的解释性
-- 支持不确定性推理和决策分析
-#### 缺点
-- 模型构建复杂，需专业知识
-- 计算复杂度高，尤其是大规模图模型
-- 需要大量数据进行参数估计
-### 16.3 概率图模型应用场景
-概率图模型适用于以下场景：
-- 诊断系统，如医疗诊断、故障检测等
-- 自然语言处理，如语义分析、信息抽取等
-- 计算机视觉，如图像分割、目标识别等
-- 推荐系统，如个性化推荐、广告投放等
-- 生物信息学，如基因调控网络分析等
-- 社会网络分析，如社区发现、影响力传播等
-### 16.4 概率图模型实现
-以下是使用Python和pgmpy库实现贝叶斯网络的示例代码
+常见组合方式：投票（Voting）/平均、Bagging、Boosting、Stacking（堆叠）。
+
+
+###  2. 常见方法与原理（简要）
+####  1.	Bagging（Bootstrap Aggregating）
+
++ 方法：对训练集做有放回抽样（bootstrap），在不同样本子集上训练多个同类基学习器（常用决策树），最后平均/投票。
++ 优点：降低方差、抗过拟合，适合高方差模型（如深树）。
++ 代表：RandomForest（在 Bagging 基础上额外随机选特征）。
+####  2.	Boosting
++	方法：序列化训练弱学习器，每个新模型重点纠正前一轮的错误（通过加权样本或拟合残差）。通常用弱学习器（浅树）。
++	优点：能显著降低偏差并提升准确率，适合提升弱模型性能。
++	代表：AdaBoost、Gradient Boosting（GradientBoosting、HistGradientBoosting）、XGBoost、LightGBM、CatBoost。
+####  3.	Stacking（堆叠）
++	方法：在一层训练若干不同模型，然后把这些模型的预测（通常是概率或预测值）作为“元特征”再训练一个元学习器（meta-learner），处理模型间互补。
++	优点：有能力整合多种模型优势，提升效果（但需注意过拟合与数据泄露）。
++	实践：使用交叉验证产生第一层的 out-of-fold 预测作为训练数据给第二层。
+####  4.	Voting / Averaging
++	简单直接：对多个不同模型的预测投票（分类）或平均（回归）。常用于 baseline 或少量模型融合。
+
+###  3. 优缺点总结
+
+####  优点：
++	提升性能（准确率、稳定性）
++	降低过拟合（Bagging）或偏差（Boosting）
++	能结合不同模型的优势（Stacking）
+
+####  缺点 / 注意点：
++	训练与推断成本高（多模型）
++	复杂度与可解释性下降
++	Boosting 容易过拟合（需要正则化、早停）
++	Stacking 若处理不当会导致数据泄露（需使用 out-of-fold 预测）
++	超参数多，需调参
+
+
+###  4. 典型应用场景
++	结构化/表格数据的建模（金融风控、信贷评分）
++	排序 / 点击率预估（用 GBDT 与 LR 混合）
++	竞赛（Kaggle 等）常用融合（Stacking / Blending）
++	特征重要性分析（如 RandomForest）
++	回归与分类通用场景
+
+
+###  5. 实战代码（scikit-learn）
+
+下面给出分类与回归的完整示例，含数据加载、训练、评估与 stacking。代码可直接在 Python 环境运行（需安装 scikit-learn、numpy、pandas）。
+
+
+####  分类示例：Iris（演示 RandomForest、AdaBoost、GradientBoosting、Stacking）
+
+```python
+# 分类示例：Iris 数据集
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier, StackingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# 1. 数据
+data = load_iris()
+X, y = data.data, data.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+# 2. 基础模型
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+adb = AdaBoostClassifier(n_estimators=100, random_state=42)
+gb = GradientBoostingClassifier(n_estimators=100, random_state=42)
+
+# 3. 训练并评估单模型
+for name, model in [("RandomForest", rf), ("AdaBoost", adb), ("GBDT", gb)]:
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(f"=== {name} ===")
+    print("Accuracy:", accuracy_score(y_test, pred))
+    print(classification_report(y_test, pred))
+
+# 4. Stacking（堆叠）
+estimators = [
+    ('rf', RandomForestClassifier(n_estimators=100, random_state=42)),
+    ('gb', GradientBoostingClassifier(n_estimators=100, random_state=42)),
+    ('adb', AdaBoostClassifier(n_estimators=100, random_state=42))
+]
+stack = StackingClassifier(estimators=estimators,
+                           final_estimator=LogisticRegression(max_iter=1000),
+                           cv=5, passthrough=False)  # passthrough=True 会将原始特征与一级预测一并传给元学习器
+
+stack.fit(X_train, y_train)
+pred_stack = stack.predict(X_test)
+print("=== Stacking ===")
+print("Accuracy:", accuracy_score(y_test, pred_stack))
+print(classification_report(y_test, pred_stack))
+```
+
+#####  说明
++	StackingClassifier 内部自动做交叉验证来获得 out-of-fold 预测，避免泄露（scikit-learn 的实现能帮你处理）。
++	对真实业务数据常需做更多预处理、特征工程、调参（GridSearch/RandomizedSearch）。
+
+
+####  回归示例：California housing（演示 RandomForestRegressor、GradientBoostingRegressor、StackingRegressor）
+```python
+# 回归示例：California housing
+import numpy as np
+import pandas as pd
+from sklearn.datasets import fetch_california_housing
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, StackingRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+
+data = fetch_california_housing()
+X, y = data.data, data.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 使用 pipeline 来对需要的模型做标准化（某些模型不需要）
+rf = RandomForestRegressor(n_estimators=100, random_state=42)
+gbr = GradientBoostingRegressor(n_estimators=200, random_state=42)
+
+# Stacking 回归：使用线性回归作为元学习器
+estimators = [('rf', rf), ('gbr', gbr)]
+stack = StackingRegressor(estimators=estimators, final_estimator=LinearRegression(), cv=5, passthrough=False)
+
+# 训练
+stack.fit(X_train, y_train)
+pred = stack.predict(X_test)
+
+print("MSE:", mean_squared_error(y_test, pred))
+print("R2:", r2_score(y_test, pred))
+```
+
+
+###  6. 常用实践建议（工程层面）
+1.	选择基学习器
+    +	Bagging：用高方差模型（深树）效果好。
+    +	Boosting：用弱学习器（浅树）逐步拟合残差。
+    +	Stacking：选互补性强的模型（例如 tree + linear + knn）。
+2.	特征工程很重要：尤其 stacking 时，不同模型对特征预处理敏感（例如线性模型需要缩放，树模型不用）。
+3.	验证策略：使用交叉验证（k-fold）评估，stacking 要注意 out-of-fold 预测避免泄露。
+4.	调参：
+    +	RandomForest：n_estimators, max_depth, max_features。
+    +	Boosting：学习率（learning_rate），n_estimators，max_depth，subsample（随机采样可降低过拟合）。
+    +	使用 RandomizedSearchCV 或 Bayesian 调参（如 Optuna）。
+5.	早停（early stopping）：Boosting（如 GradientBoosting、HistGradientBoosting、LightGBM）支持早停，用验证集防止过拟合。
+6.	特征重要性与解释性：随机森林 / GBDT 可给特征重要性；也可以用 SHAP 做更细致解释。
+7.	模型融合的成本：线上部署要考虑推断延迟与成本，可把多模型融合压缩为单模型（如 distillation/knowledge distillation）。
+
+
+###  7. 进阶技巧（小贴士）
++	Blending：用 hold-out 集合分别训练底层模型并对验证集预测，再用这些预测训练元模型（简单版 stacking）。
++	模型序列化：保存多个模型与元模型（joblib.dump），部署时按需加载。
++	融合权重搜索：对于简单平均/加权平均，用贝叶斯优化或网格搜索找最优权重。
++	Ensemble pruning：若模型太多，可能有冗余，通过贪心选择子集提升效率。
++	Calibrate 概率：对于分类概率输出，可能需要 CalibratedClassifierCV 做概率校准（尤其 stacking 的概率输入给元模型时）。
+
+
+###  8. 小结（快速回顾）
++	集成学习通过组合多个模型提升性能和稳定性。
++	Bagging 降方差、Boosting 降偏差、Stacking 整合互补信息。
++	使用时注意验证、数据泄露、性能/成本折中和调参。
+
+
 
 
 
