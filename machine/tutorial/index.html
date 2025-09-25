@@ -1583,44 +1583,80 @@
         <li class="md-nav__item">
   <a href="#_58" class="md-nav__link">
     <span class="md-ellipsis">
-      十六、概率图模型
+      十六、集成学习
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="十六、概率图模型">
+    <nav class="md-nav" aria-label="十六、集成学习">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#161" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     <span class="md-ellipsis">
-      16.1 概率图模型原理
+      1. 什么是集成学习（核心思想）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#162" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.2 概率图模型优缺点
+      2. 常见方法与原理（简要）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#163" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.3 概率图模型应用场景
+      3. 优缺点总结
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#164" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.4 概率图模型实现
+      4. 典型应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 实战代码（scikit-learn）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 常用实践建议（工程层面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 进阶技巧（小贴士）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 小结（快速回顾）
     </span>
   </a>
   
@@ -2895,44 +2931,80 @@
         <li class="md-nav__item">
   <a href="#_58" class="md-nav__link">
     <span class="md-ellipsis">
-      十六、概率图模型
+      十六、集成学习
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="十六、概率图模型">
+    <nav class="md-nav" aria-label="十六、集成学习">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#161" class="md-nav__link">
+  <a href="#1_2" class="md-nav__link">
     <span class="md-ellipsis">
-      16.1 概率图模型原理
+      1. 什么是集成学习（核心思想）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#162" class="md-nav__link">
+  <a href="#2_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.2 概率图模型优缺点
+      2. 常见方法与原理（简要）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#163" class="md-nav__link">
+  <a href="#3_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.3 概率图模型应用场景
+      3. 优缺点总结
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#164" class="md-nav__link">
+  <a href="#4_1" class="md-nav__link">
     <span class="md-ellipsis">
-      16.4 概率图模型实现
+      4. 典型应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 实战代码（scikit-learn）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 常用实践建议（工程层面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 进阶技巧（小贴士）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 小结（快速回顾）
     </span>
   </a>
   
@@ -4793,36 +4865,172 @@ class SimpleCNN(nn.Module):
         x = self.fc1(x)
         return x
 </code></pre></div></p>
-<h2 id="_58">十六、概率图模型<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
-<p>概率图模型（Probabilistic Graphical Model, PGM）是一种结合概率论和图论的模型，用于表示和处理复杂的随机变量关系。常见的概率图模型包括贝叶斯网络（Bayesian Network）和马尔可夫随机场（Markov Random Field, MRF）等。</p>
-<h3 id="161">16.1 概率图模型原理<a class="headerlink" href="#161" title="Permanent link">&para;</a></h3>
+<h2 id="_58">十六、集成学习<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">1. 什么是集成学习（核心思想）<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>集成学习通过把多个基学习器（base learners）组合起来形成一个更强的“集成模型”。直观理由：多个弱学习器的预测会有差异，把它们合理结合（投票、加权、堆叠等）可以降低方差、降低偏差或提高鲁棒性。</p>
+<p>常见组合方式：投票（Voting）/平均、Bagging、Boosting、Stacking（堆叠）。</p>
+<h3 id="2_1">2. 常见方法与原理（简要）<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h4 id="1-baggingbootstrap-aggregating">1.    Bagging（Bootstrap Aggregating）<a class="headerlink" href="#1-baggingbootstrap-aggregating" title="Permanent link">&para;</a></h4>
 <ul>
-<li>贝叶斯网络通过有向无环图（DAG）表示随机变量之间的条件依赖关系，适用于表示因果关系。</li>
-<li>马尔可夫随机场通过无向图表示随机变量之间的联合分布，适用于表示对称关系。</li>
+<li>方法：对训练集做有放回抽样（bootstrap），在不同样本子集上训练多个同类基学习器（常用决策树），最后平均/投票。</li>
+<li>优点：降低方差、抗过拟合，适合高方差模型（如深树）。</li>
+<li>代表：RandomForest（在 Bagging 基础上额外随机选特征）。</li>
 </ul>
-<h3 id="162">16.2 概率图模型优缺点<a class="headerlink" href="#162" title="Permanent link">&para;</a></h3>
-<h4 id="_59">优点<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<h4 id="2-boosting">2.    Boosting<a class="headerlink" href="#2-boosting" title="Permanent link">&para;</a></h4>
 <ul>
-<li>能表示复杂的随机变量关系</li>
-<li>结合概率论和图论，具有良好的解释性</li>
-<li>支持不确定性推理和决策分析</li>
+<li>方法：序列化训练弱学习器，每个新模型重点纠正前一轮的错误（通过加权样本或拟合残差）。通常用弱学习器（浅树）。</li>
+<li>优点：能显著降低偏差并提升准确率，适合提升弱模型性能。</li>
+<li>代表：AdaBoost、Gradient Boosting（GradientBoosting、HistGradientBoosting）、XGBoost、LightGBM、CatBoost。</li>
 </ul>
-<h4 id="_60">缺点<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<h4 id="3-stacking">3.    Stacking（堆叠）<a class="headerlink" href="#3-stacking" title="Permanent link">&para;</a></h4>
 <ul>
-<li>模型构建复杂，需专业知识</li>
-<li>计算复杂度高，尤其是大规模图模型</li>
-<li>需要大量数据进行参数估计</li>
+<li>方法：在一层训练若干不同模型，然后把这些模型的预测（通常是概率或预测值）作为“元特征”再训练一个元学习器（meta-learner），处理模型间互补。</li>
+<li>优点：有能力整合多种模型优势，提升效果（但需注意过拟合与数据泄露）。</li>
+<li>实践：使用交叉验证产生第一层的 out-of-fold 预测作为训练数据给第二层。</li>
 </ul>
-<h3 id="163">16.3 概率图模型应用场景<a class="headerlink" href="#163" title="Permanent link">&para;</a></h3>
-<p>概率图模型适用于以下场景：
-- 诊断系统，如医疗诊断、故障检测等
-- 自然语言处理，如语义分析、信息抽取等
-- 计算机视觉，如图像分割、目标识别等
-- 推荐系统，如个性化推荐、广告投放等
-- 生物信息学，如基因调控网络分析等
-- 社会网络分析，如社区发现、影响力传播等</p>
-<h3 id="164">16.4 概率图模型实现<a class="headerlink" href="#164" title="Permanent link">&para;</a></h3>
-<p>以下是使用Python和pgmpy库实现贝叶斯网络的示例代码</p>
+<h4 id="4-voting-averaging">4.    Voting / Averaging<a class="headerlink" href="#4-voting-averaging" title="Permanent link">&para;</a></h4>
+<ul>
+<li>简单直接：对多个不同模型的预测投票（分类）或平均（回归）。常用于 baseline 或少量模型融合。</li>
+</ul>
+<h3 id="3_1">3. 优缺点总结<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h4 id="_59">优点：<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<ul>
+<li>提升性能（准确率、稳定性）</li>
+<li>降低过拟合（Bagging）或偏差（Boosting）</li>
+<li>能结合不同模型的优势（Stacking）</li>
+</ul>
+<h4 id="_60">缺点 / 注意点：<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<ul>
+<li>训练与推断成本高（多模型）</li>
+<li>复杂度与可解释性下降</li>
+<li>Boosting 容易过拟合（需要正则化、早停）</li>
+<li>Stacking 若处理不当会导致数据泄露（需使用 out-of-fold 预测）</li>
+<li>超参数多，需调参</li>
+</ul>
+<h3 id="4_1">4. 典型应用场景<a class="headerlink" href="#4_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>结构化/表格数据的建模（金融风控、信贷评分）</li>
+<li>排序 / 点击率预估（用 GBDT 与 LR 混合）</li>
+<li>竞赛（Kaggle 等）常用融合（Stacking / Blending）</li>
+<li>特征重要性分析（如 RandomForest）</li>
+<li>回归与分类通用场景</li>
+</ul>
+<h3 id="5-scikit-learn">5. 实战代码（scikit-learn）<a class="headerlink" href="#5-scikit-learn" title="Permanent link">&para;</a></h3>
+<p>下面给出分类与回归的完整示例，含数据加载、训练、评估与 stacking。代码可直接在 Python 环境运行（需安装 scikit-learn、numpy、pandas）。</p>
+<h4 id="iris-randomforestadaboostgradientboostingstacking">分类示例：Iris（演示 RandomForest、AdaBoost、GradientBoosting、Stacking）<a class="headerlink" href="#iris-randomforestadaboostgradientboostingstacking" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 分类示例：Iris 数据集</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">AdaBoostClassifier</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">,</span> <span class="n">StackingClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># 1. 数据</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># 2. 基础模型</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">adb</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 3. 训练并评估单模型</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">&quot;RandomForest&quot;</span><span class="p">,</span> <span class="n">rf</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;AdaBoost&quot;</span><span class="p">,</span> <span class="n">adb</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;GBDT&quot;</span><span class="p">,</span> <span class="n">gb</span><span class="p">)]:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=== </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+
+<span class="c1"># 4. Stacking（堆叠）</span>
+<span class="n">estimators</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;gb&#39;</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;adb&#39;</span><span class="p">,</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+<span class="p">]</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="n">estimators</span><span class="p">,</span>
+                           <span class="n">final_estimator</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+                           <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">passthrough</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># passthrough=True 会将原始特征与一级预测一并传给元学习器</span>
+
+<span class="n">stack</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">pred_stack</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Stacking ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_stack</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_stack</span><span class="p">))</span>
+</code></pre></div>
+<h5 id="_61">说明<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h5>
+<ul>
+<li>StackingClassifier 内部自动做交叉验证来获得 out-of-fold 预测，避免泄露（scikit-learn 的实现能帮你处理）。</li>
+<li>对真实业务数据常需做更多预处理、特征工程、调参（GridSearch/RandomizedSearch）。</li>
+</ul>
+<h4 id="california-housing-randomforestregressorgradientboostingregressorstackingregressor">回归示例：California housing（演示 RandomForestRegressor、GradientBoostingRegressor、StackingRegressor）<a class="headerlink" href="#california-housing-randomforestregressorgradientboostingregressorstackingregressor" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 回归示例：California housing</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">,</span> <span class="n">StackingRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 使用 pipeline 来对需要的模型做标准化（某些模型不需要）</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gbr</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Stacking 回归：使用线性回归作为元学习器</span>
+<span class="n">estimators</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">rf</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;gbr&#39;</span><span class="p">,</span> <span class="n">gbr</span><span class="p">)]</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">StackingRegressor</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="n">estimators</span><span class="p">,</span> <span class="n">final_estimator</span><span class="o">=</span><span class="n">LinearRegression</span><span class="p">(),</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">passthrough</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># 训练</span>
+<span class="n">stack</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2:&quot;</span><span class="p">,</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="6">6. 常用实践建议（工程层面）<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<ol>
+<li>选择基学习器<ul>
+<li>Bagging：用高方差模型（深树）效果好。</li>
+<li>Boosting：用弱学习器（浅树）逐步拟合残差。</li>
+<li>Stacking：选互补性强的模型（例如 tree + linear + knn）。</li>
+</ul>
+</li>
+<li>特征工程很重要：尤其 stacking 时，不同模型对特征预处理敏感（例如线性模型需要缩放，树模型不用）。</li>
+<li>验证策略：使用交叉验证（k-fold）评估，stacking 要注意 out-of-fold 预测避免泄露。</li>
+<li>调参：<ul>
+<li>RandomForest：n_estimators, max_depth, max_features。</li>
+<li>Boosting：学习率（learning_rate），n_estimators，max_depth，subsample（随机采样可降低过拟合）。</li>
+<li>使用 RandomizedSearchCV 或 Bayesian 调参（如 Optuna）。</li>
+</ul>
+</li>
+<li>早停（early stopping）：Boosting（如 GradientBoosting、HistGradientBoosting、LightGBM）支持早停，用验证集防止过拟合。</li>
+<li>特征重要性与解释性：随机森林 / GBDT 可给特征重要性；也可以用 SHAP 做更细致解释。</li>
+<li>模型融合的成本：线上部署要考虑推断延迟与成本，可把多模型融合压缩为单模型（如 distillation/knowledge distillation）。</li>
+</ol>
+<h3 id="7">7. 进阶技巧（小贴士）<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Blending：用 hold-out 集合分别训练底层模型并对验证集预测，再用这些预测训练元模型（简单版 stacking）。</li>
+<li>模型序列化：保存多个模型与元模型（joblib.dump），部署时按需加载。</li>
+<li>融合权重搜索：对于简单平均/加权平均，用贝叶斯优化或网格搜索找最优权重。</li>
+<li>Ensemble pruning：若模型太多，可能有冗余，通过贪心选择子集提升效率。</li>
+<li>Calibrate 概率：对于分类概率输出，可能需要 CalibratedClassifierCV 做概率校准（尤其 stacking 的概率输入给元模型时）。</li>
+</ul>
+<h3 id="8">8. 小结（快速回顾）<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>集成学习通过组合多个模型提升性能和稳定性。</li>
+<li>Bagging 降方差、Boosting 降偏差、Stacking 整合互补信息。</li>
+<li>使用时注意验证、数据泄露、性能/成本折中和调参。</li>
+</ul>
 
 
 
